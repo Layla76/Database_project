@@ -2,94 +2,106 @@
   "entities": 
   [
     {
-      "Wages": {
+      "wages": {
         "attributes": {
-          "ID": "INT(10)",
-          "jobID": "INT(10)",
-          "type": "VARCHAR(50)",
-          "wage": "DECIMAL(10, 2)"
+          "id": "number(10)",
+          "jobId": "number(10)",
+          "types": "varchar(50)",
+          "wage": "float"
         },
-        "primaryKey": "ID",
+        "primaryKey": "id",
         "foreignKeys": {
-          "jobID": {
-            "referenceTable": "Jobs",
-            "referenceField": "ID"
+          "jobId": {
+            "referenceTable": "jobs",
+            "referenceField": "id"
           }
         }
       },
-      "Subscriptions": {
+      "subscriptions": {
         "attributes": {
-          "ID": "INT(10)",
-          "type": "VARCHAR(50)",
-          "cost": "DECIMAL(10, 2)",
-          "isRenewable": "INT(1)"
+          "id": "number(10)",
+          "types": "varchar(50)",
+          "cost": "float",
+          "isRenewable": "number(1)"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
       },
-      "Procurements": {
+      "procurements": {
         "attributes": {
-          "ID": "INT(10)",
-          "type": "VARCHAR(50)"
+          "id": "number(10)",
+          "types": "varchar(50)"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
       },
-      "Penalties": {
+      "penalties": {
         "attributes": {
-          "ID": "INT(10)",
-          "type": "VARCHAR(50)",
-          "fee": "DECIMAL(10, 2)"
+          "id": "number(10)",
+          "types": "varchar(50)",
+          "fee": "float"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
       },
-      "Insurance": {
+      "insurance": {
         "attributes": {
-          "ID": "INT(10)",
-          "providerID": "INT(10)",
-          "plan": "VARCHAR(50)",
-          "cost": "DECIMAL(10, 2)"
+          "id": "number(10)",
+          "providerId": "number(10)",
+          "plan": "varchar(50)",
+          "cost": "float"
         },
-        "primaryKey": "ID",
+        "primaryKey": "id",
         "foreignKeys": {
-          "referenceTable": "Providers",
-          "referenceField": "ID"
+          "referenceTable": "providers",
+          "referenceField": "id"
         }
       },
-      "Funding": {
+      "funding": {
         "attributes": {
-          "ID": "INT(10)",
-          "type": "VARCHAR(50)"
+          "id": "number(10)",
+          "types": "varchar(50)"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
       },
-      "Employees": {
+      "employees": {
         "attributes": {
-          "ID": "INT(10)"
+          "id": "number(9)"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
       },
-      "Books": {
+      "books": {
         "attributes": {
-          "ID": "INT(10)"
+          "id": "number(10)"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
       },
-      "Members": {
+      "members": {
         "attributes": {
-          "ID": "INT(10)"
+          "id": "number(9)"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
       },
-      "InsurableEntities": {
+      "insurableEntities": {
         "attributes": {
-          "ID": "INT(10)"
+          "id": "number(10)"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
       },
-      "FundingSources": {
+      "fundingSources": {
         "attributes": {
-          "ID": "INT(10)"
+          "id": "number(10)"
         },
-        "primaryKey": "ID"
+        "primaryKey": "id"
+      },
+      "jobs": {
+        "attributes": {
+          "id": "number(10)"
+        },
+        "primaryKey": "id"
+      },
+      "providers": {
+        "attributes": {
+          "id": "number(10)"
+        },
+        "primaryKey": "id"
       }
     } 
   ],
@@ -99,95 +111,95 @@
       "relationshipName": "paid",
       "type": "many-to-many",
       "from": {
-        "entity": "Wages",
-        "key": "ID"
+        "entity": "wages",
+        "key": "id"
       },
       "to": {
-        "entity": "Employees",
-        "key": "ID"
+        "entity": "employees",
+        "key": "id"
       },
       "attributes": {
-        "date": "DATE"
+        "date": "date"
       }
     },
     {
       "relationshipName": "procured",
       "type": "many-to-one",
       "from": {
-        "entity": "Procurements",
-        "key": "ID"
+        "entity": "procurements",
+        "key": "id"
       },
       "to": {
-        "entity": "Books",
-        "key": "ID"
+        "entity": "books",
+        "key": "id"
       },
       "attributes": {
-        "date": "DATE",
-        "cost": "DECIMAL(10, 2)"
+        "date": "date",
+        "cost": "float"
       }
     },
     {
       "relationshipName": "subscribed",
       "type": "many-to-many",
       "from": {
-        "entity": "Subscriptions",
-        "key": "ID"
+        "entity": "subscriptions",
+        "key": "id"
       },
       "to": {
-        "entity": "Members",
-        "key": "ID"
+        "entity": "members",
+        "key": "id"
       },
       "attributes": {
-        "startDate": "DATE",
-        "endDate": "DATE"
+        "startDate": "date",
+        "endDate": "date"
       }
     },
     {
       "relationshipName": "receives",
       "type": "many-to-many",
       "from": {
-        "entity": "Members",
-        "key": "ID"
+        "entity": "members",
+        "key": "id"
       },
       "to": {
-        "entity": "Penalties",
-        "key": "ID"
+        "entity": "penalties",
+        "key": "id"
       },
       "attributes": {
-        "issueDate": "DATE",
-        "dueDate": "DATE"
+        "issueDate": "date",
+        "dueDate": "date"
       }
     },
     {
       "relationshipName": "insured",
       "type": "many-to-many",
       "from": {
-        "entity": "Insurance",
-        "key": "ID"
+        "entity": "insurance",
+        "key": "id"
       },
       "to": {
-        "entity": "InsurableEntities",
-        "key": "ID"
+        "entity": "insurableEntities",
+        "key": "id"
       },
       "attributes": {
-        "startDate": "DATE",
-        "endDate": "DATE"
+        "startDate": "date",
+        "endDate": "date"
       }
     },
     {
       "relationshipName": "grants",
       "type": "many-to-one",
       "from": {
-        "entity": "Funding sources",
-        "key": "ID"
+        "entity": "fundingSources",
+        "key": "id"
       },
       "to": {
-        "entity": "Funding",
-        "key": "ID"
+        "entity": "funding",
+        "key": "id"
       },
       "attributes": {
-        "amount": "INT",
-        "date": "DATE"
+        "amount": "float",
+        "date": "date"
       }
     }
   ]
