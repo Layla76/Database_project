@@ -2,7 +2,7 @@ create table wages(
                                 id number(10) primary key,
                                 jobId number(10) references jobs
                                 types varchar(50),
-                                wage decimal(10, 2)t
+                                wage decimal(10, 2)
                   );
                   
 create table procurements(
