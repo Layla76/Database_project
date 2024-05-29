@@ -7,7 +7,7 @@
           "id": "number(10)",
           "jobId": "number(10)",
           "types": "varchar(50)",
-          "wage": "float"
+          "wage": "decimal(10, 2)"
         },
         "primaryKey": "id",
         "foreignKeys": {
@@ -21,7 +21,7 @@
         "attributes": {
           "id": "number(10)",
           "types": "varchar(50)",
-          "cost": "float",
+          "cost": "decimal(10, 2)",
           "isRenewable": "number(1)"
         },
         "primaryKey": "id"
@@ -37,7 +37,7 @@
         "attributes": {
           "id": "number(10)",
           "types": "varchar(50)",
-          "fee": "float"
+          "fee": "decimal(10, 2)"
         },
         "primaryKey": "id"
       },
@@ -46,7 +46,7 @@
           "id": "number(10)",
           "providerId": "number(10)",
           "plan": "varchar(50)",
-          "cost": "float"
+          "cost": "decimal(10, 2)"
         },
         "primaryKey": "id",
         "foreignKeys": {
@@ -135,7 +135,7 @@
       },
       "attributes": {
         "date": "date",
-        "cost": "float"
+        "cost": "decimal(10, 2)"
       }
     },
     {
@@ -198,7 +198,7 @@
         "key": "id"
       },
       "attributes": {
-        "amount": "float",
+        "amount": "decimal(10, 2)",
         "date": "date"
       }
     }

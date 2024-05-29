@@ -2,7 +2,7 @@ create table wages(
                                 id number(10) primary key,
                                 jobId number(10) references jobs
                                 types varchar(50),
-                                wage float
+                                wage decimal(10, 2)t
                   );
                   
 create table procurements(
@@ -13,21 +13,21 @@ create table procurements(
 create table subscriptions(
                                 id number(10) primary key,
                                 types varchar(50),
-                                cost float,
+                                cost decimal(10, 2),
                                 isRenewable number(1)
                           );
 
 create table penalties(
                                 id number(10) primary key,
                                 types varchar(50),
-                                fee float
+                                fee decimal(10, 2)
                       );
 
 create table insurance(
                                 id number(10) primary key,
                                 providerId number(10) references providers,
                                 plan varchar(50),
-                                cost float
+                                cost decimal(10, 2)
                       );
 
 create table funding(
