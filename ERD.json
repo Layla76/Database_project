@@ -1,0 +1,194 @@
+{
+  "entities": 
+  [
+    {
+      "Wages": {
+        "attributes": {
+          "ID": "INT(10)",
+          "jobID": "INT(10)",
+          "type": "VARCHAR(50)",
+          "wage": "DECIMAL(10, 2)"
+        },
+        "primaryKey": "ID",
+        "foreignKeys": {
+          "jobID": {
+            "referenceTable": "Jobs",
+            "referenceField": "ID"
+          }
+        }
+      },
+      "Subscriptions": {
+        "attributes": {
+          "ID": "INT(10)",
+          "type": "VARCHAR(50)",
+          "cost": "DECIMAL(10, 2)",
+          "isRenewable": "INT(1)"
+        },
+        "primaryKey": "ID"
+      },
+      "Procurements": {
+        "attributes": {
+          "ID": "INT(10)",
+          "type": "VARCHAR(50)"
+        },
+        "primaryKey": "ID"
+      },
+      "Penalties": {
+        "attributes": {
+          "ID": "INT(10)",
+          "type": "VARCHAR(50)",
+          "fee": "DECIMAL(10, 2)"
+        },
+        "primaryKey": "ID"
+      },
+      "Insurance": {
+        "attributes": {
+          "ID": "INT(10)",
+          "providerID": "INT(10)",
+          "plan": "VARCHAR(50)",
+          "cost": "DECIMAL(10, 2)"
+        },
+        "primaryKey": "ID",
+        "foreignKeys": {
+          "referenceTable": "Providers",
+          "referenceField": "ID"
+        }
+      },
+      "Funding": {
+        "attributes": {
+          "ID": "INT(10)",
+          "type": "VARCHAR(50)"
+        },
+        "primaryKey": "ID"
+      },
+      "Employees": {
+        "attributes": {
+          "ID": "INT(10)"
+        },
+        "primaryKey": "ID"
+      },
+      "Books": {
+        "attributes": {
+          "ID": "INT(10)"
+        },
+        "primaryKey": "ID"
+      },
+      "Members": {
+        "attributes": {
+          "ID": "INT(10)"
+        },
+        "primaryKey": "ID"
+      },
+      "InsurableEntities": {
+        "attributes": {
+          "ID": "INT(10)"
+        },
+        "primaryKey": "ID"
+      },
+      "FundingSources": {
+        "attributes": {
+          "ID": "INT(10)"
+        },
+        "primaryKey": "ID"
+      }
+    } 
+  ],
+  "relationships": 
+  [
+    {
+      "relationshipName": "paid",
+      "type": "many-to-many",
+      "from": {
+        "entity": "Wages",
+        "key": "ID"
+      },
+      "to": {
+        "entity": "Employees",
+        "key": "ID"
+      },
+      "attributes": {
+        "date": "DATE"
+      }
+    },
+    {
+      "relationshipName": "procured",
+      "type": "many-to-one",
+      "from": {
+        "entity": "Procurements",
+        "key": "ID"
+      },
+      "to": {
+        "entity": "Books",
+        "key": "ID"
+      },
+      "attributes": {
+        "date": "DATE",
+        "cost": "DECIMAL(10, 2)"
+      }
+    },
+    {
+      "relationshipName": "subscribed",
+      "type": "many-to-many",
+      "from": {
+        "entity": "Subscriptions",
+        "key": "ID"
+      },
+      "to": {
+        "entity": "Members",
+        "key": "ID"
+      },
+      "attributes": {
+        "startDate": "DATE",
+        "endDate": "DATE"
+      }
+    },
+    {
+      "relationshipName": "receives",
+      "type": "many-to-many",
+      "from": {
+        "entity": "Members",
+        "key": "ID"
+      },
+      "to": {
+        "entity": "Penalties",
+        "key": "ID"
+      },
+      "attributes": {
+        "issueDate": "DATE",
+        "dueDate": "DATE"
+      }
+    },
+    {
+      "relationshipName": "insured",
+      "type": "many-to-many",
+      "from": {
+        "entity": "Insurance",
+        "key": "ID"
+      },
+      "to": {
+        "entity": "InsurableEntities",
+        "key": "ID"
+      },
+      "attributes": {
+        "startDate": "DATE",
+        "endDate": "DATE"
+      }
+    },
+    {
+      "relationshipName": "grants",
+      "type": "many-to-one",
+      "from": {
+        "entity": "Funding sources",
+        "key": "ID"
+      },
+      "to": {
+        "entity": "Funding",
+        "key": "ID"
+      },
+      "attributes": {
+        "amount": "INT",
+        "date": "DATE"
+      }
+    }
+  ]
+}
