@@ -34,7 +34,7 @@
           "id_": "numeric(10, 0)",
           "type_": "varchar(50)",
           "cost_": "numeric(10, 2)",
-          "isRenewable": "number(1)"
+          "is_renewable": "number(1)"
         },
         "primaryKey": "id_"
       },
@@ -91,13 +91,13 @@
         },
         "primaryKey": "id"
       },
-      "insurableEntities": {
+      "insurable_entities": {
         "attributes": {
           "id_": "numeric(10, 0)"
         },
         "primaryKey": "id_"
       },
-      "fundingSources": {
+      "funding_sources": {
         "attributes": {
           "id_": "numeric(10, 0)"
         },
@@ -150,8 +150,8 @@
         "key": "id_"
       },
       "attributes": {
-        "startDate": "date",
-        "endDate": "date"
+        "start_date_": "date",
+        "end_date": "date"
       }
     },
     {
@@ -166,8 +166,8 @@
         "key": "id_"
       },
       "attributes": {
-        "issueDate": "date",
-        "dueDate": "date"
+        "issue_date": "date",
+        "due_date": "date"
       }
     },
     {
@@ -178,19 +178,19 @@
         "key": "id_"
       },
       "to": {
-        "entity": "insurableEntities",
+        "entity": "insurable_entities",
         "key": "id_"
       },
       "attributes": {
-        "startDate": "date",
-        "endDate": "date"
+        "start_date_": "date",
+        "end_date": "date"
       }
     },
     {
       "relationshipName": "grants",
       "type": "many-to-one",
       "from": {
-        "entity": "fundingSources",
+        "entity": "funding_sources",
         "key": "id_"
       },
       "to": {
