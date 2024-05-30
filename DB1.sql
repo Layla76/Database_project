@@ -1,58 +1,53 @@
--- SCHEMA: billing
-
-CREATE SCHEMA IF NOT EXISTS billing
-    AUTHORIZATION postgres;
-
-CREATE TABLE IF NOT EXISTS billing.books
+CREATE TABLE IF NOT EXISTS books
 (
   id_ numeric(10,0) primary key
 );
 
-CREATE TABLE IF NOT EXISTS billing.providers
+CREATE TABLE IF NOT EXISTS providers
 (
   id_ numeric(10,0) primary key
 );
 
-CREATE TABLE IF NOT EXISTS billing.employees
+CREATE TABLE IF NOT EXISTS employees
 (
   id_ numeric(9,0) primary key
 );
 
-CREATE TABLE IF NOT EXISTS billing.members
+CREATE TABLE IF NOT EXISTS members
 (
   id_ numeric(9,0) primary key
 );
 
-CREATE TABLE IF NOT EXISTS billing."insurableEntities"
+CREATE TABLE IF NOT EXISTS "insurableEntities"
 (
   id_ numeric(10,0) primary key
 );
 
-CREATE TABLE IF NOT EXISTS billing."fundingSources"
+CREATE TABLE IF NOT EXISTS "fundingSources"
 (
   id_ numeric(10,0) primary key
 );
 
-CREATE TABLE IF NOT EXISTS billing.jobs
+CREATE TABLE IF NOT EXISTS jobs
 (
   id_ numeric(10,0) primary key
 );
 
-CREATE TABLE IF NOT EXISTS billing.wages
+CREATE TABLE IF NOT EXISTS wages
 (
   id_ numeric(10,0) primary key,
-  jobId numeric(10,0) references billing.jobs,
+  jobId numeric(10,0) references jobs,
   type_ varchar(50),
   wage numeric(10,2)
 );
 
-CREATE TABLE IF NOT EXISTS billing.procurements
+CREATE TABLE IF NOT EXISTS procurements
 (
   id_ numeric(10,0) primary key,
   type_ varchar(50)
 );
 
-CREATE TABLE IF NOT EXISTS billing.subscriptions
+CREATE TABLE IF NOT EXISTS subscriptions
 (
   id_ numeric(10,0) primary key,
   type_ varchar(50),
@@ -60,22 +55,22 @@ CREATE TABLE IF NOT EXISTS billing.subscriptions
   isRenewable numeric(1,0)
 );
 
-CREATE TABLE IF NOT EXISTS billing.penalties
+CREATE TABLE IF NOT EXISTS penalties
 (
   id_ numeric(10,0) primary key,
   type_ varchar(50),
   fee numeric(10,2)
 );
 
-CREATE TABLE IF NOT EXISTS billing.insurance
+CREATE TABLE IF NOT EXISTS insurance
 (
   id_ numeric(10,0) primary key,
-  providerId numeric(10,0) references billing.providers,
+  providerId numeric(10,0) references providers,
   plan varchar(50),
   cost_ numeric(10,2)
 );
 
-CREATE TABLE IF NOT EXISTS billing.funding
+CREATE TABLE IF NOT EXISTS funding
 (
   id_ numeric(10,0) primary key,
   type_ varchar(50)
