@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS billing.procurements
 
 CREATE TABLE IF NOT EXISTS billing.subscriptions
 (
-    id_ numeric(10,0) primary key,
+  id_ numeric(10,0) primary key,
 	type_ varchar(50),
 	cost_ numeric(10,2),
 	isRenewable numeric(1,0)
