@@ -2,76 +2,88 @@
   "entities": 
   [
     {
+      "jobs": {
+        "attributes": {
+          "id_": "numeric(10, 0)"
+        },
+        "primaryKey": "id_"
+      },
+      "providers": {
+        "attributes": {
+          "id_": "number(10, 0)"
+        },
+        "primaryKey": "id_"
+      },
       "wages": {
         "attributes": {
-          "id": "number(10)",
-          "jobId": "number(10)",
-          "types": "varchar(50)",
-          "wage": "decimal(10, 2)"
+          "id_": "number(10, 0)",
+          "jobId": "numeric(10, 0)",
+          "type_": "varchar(50)",
+          "wage": "numeric(10, 2)"
         },
         "primaryKey": "id",
         "foreignKeys": {
           "jobId": {
             "referenceTable": "jobs",
-            "referenceField": "id"
+            "referenceField": "id_"
           }
         }
       },
       "subscriptions": {
         "attributes": {
-          "id": "number(10)",
-          "types": "varchar(50)",
-          "cost": "decimal(10, 2)",
+          "id_": "numeric(10, 0)",
+          "type_": "varchar(50)",
+          "cost_": "numeric(10, 2)",
           "isRenewable": "number(1)"
         },
-        "primaryKey": "id"
+        "primaryKey": "id_"
       },
       "procurements": {
         "attributes": {
-          "id": "number(10)",
-          "types": "varchar(50)"
+          "id_": "number(10, 0)",
+          "type_": "varchar(50)"
         },
-        "primaryKey": "id"
+        "primaryKey": "id_"
       },
       "penalties": {
         "attributes": {
-          "id": "number(10)",
-          "types": "varchar(50)",
-          "fee": "decimal(10, 2)"
+          "id_": "numeric(10, 0)",
+          "type_": "varchar(50)",
+          "fee": "numeric(10, 2)"
         },
-        "primaryKey": "id"
+        "primaryKey": "id_"
       },
       "insurance": {
         "attributes": {
-          "id": "number(10)",
-          "providerId": "number(10)",
+          "id_": "numeric(10, 0)",
+          "providerId": "numeric(10, 0)",
           "plan": "varchar(50)",
-          "cost": "decimal(10, 2)"
+          "cost_": "numeric(10, 2)"
         },
-        "primaryKey": "id",
+        "primaryKey": "id_",
         "foreignKeys": {
           "referenceTable": "providers",
-          "referenceField": "id"
+          "referenceField": "id_"
         }
       },
       "funding": {
         "attributes": {
-          "id": "number(10)",
-          "types": "varchar(50)"
+          "id": "numeric(10, 0)",
+          "type_": "varchar(50)"
         },
-        "primaryKey": "id"
+        "primaryKey": "id_"
       },
       "employees": {
         "attributes": {
-          "id": "number(9)"
+          "id_": "numeric(9, 0)"
         },
         "primaryKey": "id"
       },
       "books": {
         "attributes": {
-          "id": "number(10)"
+          "id_": "numeric(10, 0)"
         },
-        "primaryKey": "id"
+        "primaryKey": "id_"
       },
       "members": {
         "attributes": {
@@ -81,27 +93,15 @@
       },
       "insurableEntities": {
         "attributes": {
-          "id": "number(10)"
+          "id_": "numeric(10, 0)"
         },
-        "primaryKey": "id"
+        "primaryKey": "id_"
       },
       "fundingSources": {
         "attributes": {
-          "id": "number(10)"
+          "id_": "numeric(10, 0)"
         },
-        "primaryKey": "id"
-      },
-      "jobs": {
-        "attributes": {
-          "id": "number(10)"
-        },
-        "primaryKey": "id"
-      },
-      "providers": {
-        "attributes": {
-          "id": "number(10)"
-        },
-        "primaryKey": "id"
+        "primaryKey": "id_"
       }
     } 
   ],
@@ -112,14 +112,14 @@
       "type": "many-to-many",
       "from": {
         "entity": "wages",
-        "key": "id"
+        "key": "id_"
       },
       "to": {
         "entity": "employees",
-        "key": "id"
+        "key": "id_"
       },
       "attributes": {
-        "date": "date"
+        "date_": "date"
       }
     },
     {
@@ -127,15 +127,15 @@
       "type": "many-to-one",
       "from": {
         "entity": "procurements",
-        "key": "id"
+        "key": "id_"
       },
       "to": {
         "entity": "books",
-        "key": "id"
+        "key": "id_"
       },
       "attributes": {
-        "date": "date",
-        "cost": "decimal(10, 2)"
+        "date_": "date",
+        "cost_": "numeric(10, 2)"
       }
     },
     {
@@ -143,11 +143,11 @@
       "type": "many-to-many",
       "from": {
         "entity": "subscriptions",
-        "key": "id"
+        "key": "id_"
       },
       "to": {
         "entity": "members",
-        "key": "id"
+        "key": "id_"
       },
       "attributes": {
         "startDate": "date",
@@ -159,11 +159,11 @@
       "type": "many-to-many",
       "from": {
         "entity": "members",
-        "key": "id"
+        "key": "id_"
       },
       "to": {
         "entity": "penalties",
-        "key": "id"
+        "key": "id_"
       },
       "attributes": {
         "issueDate": "date",
@@ -175,11 +175,11 @@
       "type": "many-to-many",
       "from": {
         "entity": "insurance",
-        "key": "id"
+        "key": "id_"
       },
       "to": {
         "entity": "insurableEntities",
-        "key": "id"
+        "key": "id_"
       },
       "attributes": {
         "startDate": "date",
@@ -191,15 +191,15 @@
       "type": "many-to-one",
       "from": {
         "entity": "fundingSources",
-        "key": "id"
+        "key": "id_"
       },
       "to": {
         "entity": "funding",
-        "key": "id"
+        "key": "id_"
       },
       "attributes": {
-        "amount": "decimal(10, 2)",
-        "date": "date"
+        "amount": "numeric(10, 2)",
+        "date_": "date"
       }
     }
   ]
