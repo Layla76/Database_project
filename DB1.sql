@@ -41,23 +41,23 @@ CREATE TABLE IF NOT EXISTS billing.jobs
 CREATE TABLE IF NOT EXISTS billing.wages
 (
   id_ numeric(10,0) primary key,
-	jobId numeric(10,0) references billing.jobs,
-	type_ varchar(50),
-	wage numeric(10,2)
+  jobId numeric(10,0) references billing.jobs,
+  type_ varchar(50),
+  wage numeric(10,2)
 );
 
 CREATE TABLE IF NOT EXISTS billing.procurements
 (
   id_ numeric(10,0) primary key,
-	type_ varchar(50)
+  type_ varchar(50)
 );
 
 CREATE TABLE IF NOT EXISTS billing.subscriptions
 (
   id_ numeric(10,0) primary key,
-	type_ varchar(50),
-	cost_ numeric(10,2),
-	isRenewable numeric(1,0)
+  type_ varchar(50),
+  cost_ numeric(10,2),
+  isRenewable numeric(1,0)
 );
 
 CREATE TABLE IF NOT EXISTS billing.penalties
@@ -70,9 +70,9 @@ CREATE TABLE IF NOT EXISTS billing.penalties
 CREATE TABLE IF NOT EXISTS billing.insurance
 (
   id_ numeric(10,0) primary key,
-	providerId numeric(10,0) references billing.providers,
-	plan varchar(50),
-	cost_ numeric(10,2)
+  providerId numeric(10,0) references billing.providers,
+  plan varchar(50),
+  cost_ numeric(10,2)
 );
 
 CREATE TABLE IF NOT EXISTS billing.funding
