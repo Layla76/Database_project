@@ -63,8 +63,8 @@ CREATE TABLE IF NOT EXISTS billing.subscriptions
 CREATE TABLE IF NOT EXISTS billing.penalties
 (
   id_ numeric(10,0) primary key,
-	type_ varchar(50),
-	fee numeric(10,2)
+  type_ varchar(50),
+  fee numeric(10,2)
 );
 
 CREATE TABLE IF NOT EXISTS billing.insurance
