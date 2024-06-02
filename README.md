@@ -10,7 +10,7 @@ Wages
 - An additional entity that is needed is employees, so that Wwges x employees can interact in the relation "paid."
 
 Procurements
-- Provideds a list of the types of procurement options (new book, rare book, inter-library loan).
+- Provideds a list of the types of procurement options (new, rare, inter-library loan).
 - An additional entity that is needed is books, so that procurements x books can interact in the relation "procured."
 
 Subscriptions

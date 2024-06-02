@@ -1,7 +1,6 @@
 from faker import Faker
 import random
 
-# Initialize Faker
 fake = Faker()
 
 with open('books.sql', 'w') as file:
@@ -57,7 +56,7 @@ with open('wages.sql', 'w') as file:
         file.write(insert_statement)
 
 with open('procurements.sql', 'w') as file:
-    types = ['new book', 'rare book', 'inter-library loan']
+    types = ['new', 'rare', 'inter_library_loan']
     for _ in range(200_000):
         id_ = fake.random_int(min=1000000000, max=9999999999)
         type_ = random.choice(types)
@@ -65,7 +64,7 @@ with open('procurements.sql', 'w') as file:
         file.write(insert_statement)
 
 with open('subscriptions.sql', 'w') as file:
-    types = ['ordinary', 'family', 'first time', 'extended']
+    types = ['ordinary', 'family', 'first_time', 'extended']
     for _ in range(200_000):
         id_ = fake.random_int(min=1000000000, max=9999999999)
         type_ = random.choice(types)
