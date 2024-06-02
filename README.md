@@ -30,6 +30,6 @@ Funding
 - Provides a list of the types of funding options (book, room, building).
 - An additional entity that is needed is funding_sources, so that funding x funding_sources can interact in the relation "grants."
 
-Data generation:
-Made a python script (generate.py) to generate all insert statements.
-200,000 rows per table
+Data generation
+- Made a python script (generate.py) to generate all insert statements.
+- 200,000 rows per table
