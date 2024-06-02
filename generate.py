@@ -65,7 +65,7 @@ with open('procurements.sql', 'w') as file:
         file.write(insert_statement)
 
 with open('subscriptions.sql', 'w') as file:
-    types = ['ordinary', 'family discounts', 'first time promotions', 'extended subscriptions']
+    types = ['ordinary', 'family', 'first time', 'extended']
     for _ in range(200_000):
         id_ = fake.random_int(min=1000000000, max=9999999999)
         type_ = random.choice(types)
