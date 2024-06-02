@@ -2,6 +2,8 @@
 
 [ERD image](ERD.png)
 
+[DSD image](DSD.png)
+
 The database entities relate to the subject “billing.”
 
 Wages
