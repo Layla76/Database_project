@@ -4,7 +4,11 @@
 
 [DSD image](DSD.png)
 
-[Dump image 1](Dump1.png) [Dump image 2](Dump2.png) [Dump image 3](Dump3.png) [Dump image 4](Dump4.png) [Dump image 5](Dump5.png)
+[Dump image 1](Dump1.png)
+[Dump image 2](Dump2.png)
+[Dump image 3](Dump3.png)
+[Dump image 4](Dump4.png)
+[Dump image 5](Dump5.png)
 
 The database entities relate to the subject “billing.”
 
