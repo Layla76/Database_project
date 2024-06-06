@@ -4,6 +4,8 @@
 
 [DSD image](DSD.png)
 
+[Dump image 1](Dump 1.png)
+
 The database entities relate to the subject “billing.”
 
 Wages
