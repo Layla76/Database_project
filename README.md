@@ -4,7 +4,7 @@
 
 [DSD image](DSD.png)
 
-[Dump image 1](Dump 1.png)
+[Dump image 1](Dump1.png)
 
 The database entities relate to the subject “billing.”
 
