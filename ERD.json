@@ -4,20 +4,20 @@
     {
       "jobs": {
         "attributes": {
-          "id_": "numeric(10, 0)"
+          "id_": "numeric(9, 0)"
         },
         "primaryKey": "id_"
       },
       "providers": {
         "attributes": {
-          "id_": "number(10, 0)"
+          "id_": "number(9, 0)"
         },
         "primaryKey": "id_"
       },
       "wages": {
         "attributes": {
-          "id_": "number(10, 0)",
-          "jobId": "numeric(10, 0)",
+          "id_": "number(9, 0)",
+          "jobId": "numeric(9, 0)",
           "type_": "varchar(50)",
           "wage": "numeric(10, 2)"
         },
@@ -31,34 +31,34 @@
       },
       "subscriptions": {
         "attributes": {
-          "id_": "numeric(10, 0)",
+          "id_": "numeric(9, 0)",
           "type_": "varchar(50)",
-          "cost_": "numeric(10, 2)",
+          "cost_": "numeric(4, 2)",
           "is_renewable": "number(1)"
         },
         "primaryKey": "id_"
       },
       "procurements": {
         "attributes": {
-          "id_": "number(10, 0)",
+          "id_": "number(9, 0)",
           "type_": "varchar(50)"
         },
         "primaryKey": "id_"
       },
       "penalties": {
         "attributes": {
-          "id_": "numeric(10, 0)",
+          "id_": "numeric(9, 0)",
           "type_": "varchar(50)",
-          "fee": "numeric(10, 2)"
+          "fee": "numeric(4, 2)"
         },
         "primaryKey": "id_"
       },
       "insurance": {
         "attributes": {
-          "id_": "numeric(10, 0)",
-          "providerId": "numeric(10, 0)",
+          "id_": "numeric(9, 0)",
+          "providerId": "numeric(9, 0)",
           "plan": "varchar(50)",
-          "cost_": "numeric(10, 2)"
+          "cost_": "numeric(8, 2)"
         },
         "primaryKey": "id_",
         "foreignKeys": {
@@ -68,7 +68,7 @@
       },
       "funding": {
         "attributes": {
-          "id": "numeric(10, 0)",
+          "id": "numeric(9, 0)",
           "type_": "varchar(50)"
         },
         "primaryKey": "id_"
@@ -81,25 +81,25 @@
       },
       "books": {
         "attributes": {
-          "id_": "numeric(10, 0)"
+          "id_": "numeric(9, 0)"
         },
         "primaryKey": "id_"
       },
       "members": {
         "attributes": {
-          "id": "number(9)"
+          "id": "numeric(9, 0)"
         },
         "primaryKey": "id"
       },
       "insurable_entities": {
         "attributes": {
-          "id_": "numeric(10, 0)"
+          "id_": "numeric(9, 0)"
         },
         "primaryKey": "id_"
       },
       "funding_sources": {
         "attributes": {
-          "id_": "numeric(10, 0)"
+          "id_": "numeric(9, 0)"
         },
         "primaryKey": "id_"
       }

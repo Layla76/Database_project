@@ -2,12 +2,12 @@
 
 create table if not exists books
 (
-  id_ numeric(10,0) primary key
+  id_ numeric(9,0) primary key
 );
 
 create table if not exists providers
 (
-  id_ numeric(10,0) primary key
+  id_ numeric(9,0) primary key
 );
 
 create table if not exists employees
@@ -22,59 +22,59 @@ create table if not exists members
 
 create table if not exists insurable_entities
 (
-  id_ numeric(10,0) primary key
+  id_ numeric(9,0) primary key
 );
 
 create table if not exists funding_sources
 (
-  id_ numeric(10,0) primary key
+  id_ numeric(9,0) primary key
 );
 
 create table if not exists jobs
 (
-  id_ numeric(10,0) primary key
+  id_ numeric(9,0) primary key
 );
 
 create table if not exists wages
 (
-  id_ numeric(10,0) primary key,
-  job_id numeric(10,0) references jobs,
+  id_ numeric(9,0) primary key,
+  job_id numeric(9,0) references jobs,
   type_ varchar(50),
   wage numeric(10,2)
 );
 
 create table if not exists procurements
 (
-  id_ numeric(10,0) primary key,
+  id_ numeric(9,0) primary key,
   type_ varchar(50)
 );
 
 create table if not exists subscriptions
 (
-  id_ numeric(10,0) primary key,
+  id_ numeric(9,0) primary key,
   type_ varchar(50),
-  cost_ numeric(10,2),
+  cost_ numeric(4,2),
   is_renewable numeric(1,0)
 );
 
 create table if not exists penalties
 (
-  id_ numeric(10,0) primary key,
+  id_ numeric(9,0) primary key,
   type_ varchar(50),
-  fee numeric(10,2)
+  fee numeric(4,2)
 );
 
 create table if not exists insurance
 (
-  id_ numeric(10,0) primary key,
-  provider_id numeric(10,0) references providers,
+  id_ numeric(9,0) primary key,
+  provider_id numeric(9,0) references providers,
   plan varchar(50),
-  cost_ numeric(10,2)
+  cost_ numeric(8,2)
 );
 
 create table if not exists funding
 (
-  id_ numeric(10,0) primary key,
+  id_ numeric(9,0) primary key,
   type_ varchar(50)
 );
 
@@ -83,7 +83,7 @@ create table if not exists funding
 
 create table if not exists paid
 (
-  wage_id numeric(10, 0),
+  wage_id numeric(9, 0),
   employee_id numeric(9, 0),
   date_ date,
   primary key (wage_id, employee_id),
@@ -93,8 +93,8 @@ create table if not exists paid
 
 create table if not exists procured
 (
-  procurement_id numeric(10, 0),
-  book_id numeric(10, 0),
+  procurement_id numeric(9, 0),
+  book_id numeric(9, 0),
   date_ date,
   cost_ numeric(10, 2),
   primary key (procurement_id, book_id),
@@ -104,7 +104,7 @@ create table if not exists procured
 
 create table if not exists subscribed
 (
-  subscription_id numeric(10, 0),
+  subscription_id numeric(9, 0),
   member_id numeric(9, 0),
   start_date_ date,
   end_date date,
@@ -115,8 +115,8 @@ create table if not exists subscribed
 
 create table if not exists receives
 (
-  member_id numeric(10, 0),
-  penalty_id numeric(10, 0),
+  member_id numeric(9, 0),
+  penalty_id numeric(9, 0),
   issue_date date,
   due_date date,
   primary key (member_id, penalty_id),
@@ -126,8 +126,8 @@ create table if not exists receives
 
 create table if not exists insured
 (
-  insurance_id numeric(10, 0),
-  insurable_entity_id numeric(10, 0),
+  insurance_id numeric(9, 0),
+  insurable_entity_id numeric(9, 0),
   start_date_ date,
   end_date date,
   primary key (insurance_id, insurable_entity_id),
@@ -137,8 +137,8 @@ create table if not exists insured
 
 create table if not exists grants
 (
-  funding_source_id numeric(10, 0),
-  funding_id numeric(10, 0),
+  funding_source_id numeric(9, 0),
+  funding_id numeric(9, 0),
   amount numeric(10, 2),
   date_ date,
   primary key (funding_source_id, funding_id),

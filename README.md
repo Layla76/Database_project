@@ -41,3 +41,44 @@ Funding
 Data generation
 - Made a python script (generate.py) to generate all insert statements.
 - 200,000 rows per table
+
+
+------------------------------------------------------------------------
+
+
+1. How much money has the library spent on books?
+  
+  
+2. What was the most expensive procurement?
+
+
+3. How much have members paid in fines due to damaged vs. lost books?
+
+
+4. What is the average funding given per grant?
+
+
+5. Increase hourly wages by $5
+
+
+6. Increase family subscriptions by $5
+
+
+7. Delete subscribed members who have a first time subscription and who have had more than 5 penalties
+
+
+8. Delete procurements that cost less than $3
+
+
+
+1. Delete hourly employees who were paid less than $[numeric]
+
+
+2. How many items are insured for over $[numeric]?
+
+
+3. The deadline for penalties is extended by [int] days
+
+
+4. How many subscriptions are active after [date]?
+
