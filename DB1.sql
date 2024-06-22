@@ -38,9 +38,9 @@ create table if not exists jobs
 create table if not exists wages
 (
   id_ numeric(9,0) primary key,
-  job_id numeric(9,0) references jobs,
+  job_id numeric(9,0) references jobs on delete cascade,
   type_ varchar(50),
-  wage numeric(10,2)
+  wage numeric(12,2)
 );
 
 create table if not exists procurements
@@ -53,7 +53,7 @@ create table if not exists subscriptions
 (
   id_ numeric(9,0) primary key,
   type_ varchar(50),
-  cost_ numeric(4,2),
+  cost_ numeric(6,2),
   is_renewable numeric(1,0)
 );
 
@@ -61,15 +61,15 @@ create table if not exists penalties
 (
   id_ numeric(9,0) primary key,
   type_ varchar(50),
-  fee numeric(4,2)
+  fee numeric(6,2)
 );
 
 create table if not exists insurance
 (
   id_ numeric(9,0) primary key,
-  provider_id numeric(9,0) references providers,
+  provider_id numeric(9,0) references providers on delete cascade,
   plan varchar(50),
-  cost_ numeric(8,2)
+  cost_ numeric(10,2)
 );
 
 create table if not exists funding
@@ -86,9 +86,9 @@ create table if not exists paid
   wage_id numeric(9, 0),
   employee_id numeric(9, 0),
   date_ date,
-  primary key (wage_id, employee_id),
-  foreign key (wage_id) references wages(id_),
-  foreign key (employee_id) references employees(id_)
+  primary key (wage_id, employee_id, date_),
+  foreign key (wage_id) references wages(id_) on delete cascade,
+  foreign key (employee_id) references employees(id_) on delete cascade
 );
 
 create table if not exists procured
@@ -96,10 +96,10 @@ create table if not exists procured
   procurement_id numeric(9, 0),
   book_id numeric(9, 0),
   date_ date,
-  cost_ numeric(10, 2),
-  primary key (procurement_id, book_id),
-  foreign key (procurement_id) references procurements(id_),
-  foreign key (book_id) references books(id_)
+  cost_ numeric(12, 2),
+  primary key (procurement_id, book_id, date_),
+  foreign key (procurement_id) references procurements(id_) on delete cascade,
+  foreign key (book_id) references books(id_) on delete cascade
 );
 
 create table if not exists subscribed
@@ -108,9 +108,9 @@ create table if not exists subscribed
   member_id numeric(9, 0),
   start_date_ date,
   end_date date,
-  primary key (subscription_id, member_id),
-  foreign key (subscription_id) references subscriptions(id_),
-  foreign key (member_id) references members(id_)
+  primary key (subscription_id, member_id, start_date_),
+  foreign key (subscription_id) references subscriptions(id_) on delete cascade,
+  foreign key (member_id) references members(id_) on delete cascade
 );
 
 create table if not exists receives
@@ -119,9 +119,9 @@ create table if not exists receives
   penalty_id numeric(9, 0),
   issue_date date,
   due_date date,
-  primary key (member_id, penalty_id),
-  foreign key (member_id) references members(id_),
-  foreign key (penalty_id) references penalties(id_)
+  primary key (member_id, penalty_id, issue_date),
+  foreign key (member_id) references members(id_) on delete cascade,
+  foreign key (penalty_id) references penalties(id_) on delete cascade
 );
 
 create table if not exists insured
@@ -130,19 +130,19 @@ create table if not exists insured
   insurable_entity_id numeric(9, 0),
   start_date_ date,
   end_date date,
-  primary key (insurance_id, insurable_entity_id),
-  foreign key (insurance_id) references insurance(id_),
-  foreign key (insurable_entity_id) references insurable_entity(id_)
+  primary key (insurance_id, insurable_entity_id, start_date_),
+  foreign key (insurance_id) references insurance(id_) on delete cascade,
+  foreign key (insurable_entity_id) references insurable_entities(id_) on delete cascade
 );
 
 create table if not exists grants
 (
   funding_source_id numeric(9, 0),
   funding_id numeric(9, 0),
-  amount numeric(10, 2),
+  amount numeric(12, 2),
   date_ date,
-  primary key (funding_source_id, funding_id),
-  foreign key (funding_source_id) references funding_sources(id_),
-  foreign key (funding_id) references funding(id_)
+  primary key (funding_source_id, funding_id, date_),
+  foreign key (funding_source_id) references funding_sources(id_) on delete cascade,
+  foreign key (funding_id) references funding(id_) on delete cascade
 );
 

@@ -1,56 +1,53 @@
 -- 1. How much money has the library spent on books?
 SELECT SUM(procured.cost_) AS total_cost
 FROM procurements
-JOIN procured ON procurement.id_ = procured.procurement_id
-JOIN books ON book.id_ = procured.book_id;
+INNER JOIN procured ON procurements.id_ = procured.procurement_id
+INNER JOIN books ON books.id_ = procured.book_id;
   
 -- 2. What was the most expensive procurement?
 SELECT MAX(procured.cost_)
 FROM procurements
-JOIN procured ON procurement.id_ = procured.procurement_id
-JOIN books ON book.id_ = procured.book_id;
+INNER JOIN procured ON procurements.id_ = procured.procurement_id
+INNER JOIN books ON books.id_ = procured.book_id;
 
 -- 3. How much have members paid in fines due for each type of penalty?
-SELECT receives.type_, SUM(receives.fee) AS total_fees
+SELECT penalties.type_, SUM(penalties.fee) AS total_fees
 FROM penalties
-JOIN receives ON penalties.id_ = receives.penalty_id
-JOIN books ON members.id_ = receives.member_id
-GROUP BY receives.type_;
+INNER JOIN receives ON penalties.id_ = receives.penalty_id
+INNER JOIN members ON members.id_ = receives.member_id
+GROUP BY penalties.type_;
 
 -- 4. What is the average funding given per grant?
 SELECT AVG(grants.amount) AS average_grant
 FROM funding
-JOIN grants ON funding.id_ = grants.funding_id
-JOIN books ON funding_sources.id_ = grants.funding_source_id;
+INNER JOIN grants ON funding.id_ = grants.funding_id
+INNER JOIN funding_sources ON funding_sources.id_ = grants.funding_source_id;
 
--- 5. Increase hourly wages by $5
-UPDATE wages
-SET wage = wage + 5
-WHERE type_ = "hourly";
+-- 5. Add 90 days to insured end dates
+UPDATE insured
+SET end_date = end_date + 90
 
-UPDATE paid
-SET wages.wage = wages.wage + 5
-WHERE wages.type_ = "hourly";
-
-
--- 6. Increase family subscriptions by $5
-UPDATE subscriptions
-SET cost = cost + 5
-WHERE type_ = "family";
-
+-- 6. Add 30 days to each subscription
 UPDATE subscribed
-SET subscriptions.cost = subscriptions.cost + 5
-WHERE subscriptions.type_ = "family";
+SET end_date = end_date + 30;
 
 -- 7. Delete subscribed members who have a first time subscription and who have had more than 5 penalties
 DELETE FROM subscribed
-WHERE subscriptions.type_ = "first_time" AND member_id IN (
+WHERE member_id IN (
   SELECT member_id
   FROM receives
   GROUP BY member_id
   HAVING COUNT(*) > 5
+) AND member_id IN (
+  SELECT member_id
+  FROM subscribed
+  WHERE subscription_id = (
+    SELECT id_
+    FROM subscriptions
+    WHERE type_ = 'first_time'
+  )
 );
 
--- 8. Delete procurements that cost less than $3
+-- 8. Delete procurements that cost less than $30000
 DELETE FROM procured
-WHERE cost < 3
+WHERE cost_ < 30000

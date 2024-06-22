@@ -47,38 +47,64 @@ Data generation
 
 
 1. How much money has the library spent on books?
-  
+  Response:       49583649665.73
+  Time:           95.054 ms
+  Improved time:  
   
 2. What was the most expensive procurement?
+  Response:       499995.54
+  Time:           47.569 ms
+  Improved time:  
 
-
-3. How much have members paid in fines due to damaged vs. lost books?
-
+3. How much have members paid in fines due for each type of penalty?
+  Response:       damaged = 61714000.00
+                  late = 6178800.00
+                  lost = 18595500.00
+  Time:           57.240 ms
+  Improved time: 
 
 4. What is the average funding given per grant?
+  Response:       250518.302880111000
+  Time:           1894.002 ms
+  Improved time:  
 
-
-5. Increase hourly wages by $5
-
+5. Add 90 days to insured end dates
+  Response:       UPDATE 192299
+  Time:           11.262 ms
+  Improved time: 
 
 6. Increase family subscriptions by $5
-
+  Response:       UPDATE 189059
+  Time:           1793.834 ms
+  Improved time: 
 
 7. Delete subscribed members who have a first time subscription and who have had more than 5 penalties
+  Response:       DELETE 189059
+  Time:           434.161 ms
+  Improved time: 
+
+8. Delete procurements that cost less than $30000
+  Response:       DELETE 11633
+  Time:           175.577 ms
+  Improved time: 
 
 
-8. Delete procurements that cost less than $3
-
-
-
-1. Delete hourly employees who were paid less than $[numeric]
-
+1. Delete payments that were less than $[numeric]
+  Response:       DELETE 46844
+  Time:           90.673 ms
+  Improved time: 
 
 2. How many items are insured for over $[numeric]?
-
+  Response:       10800
+  Time:           111.030 ms
+  Improved time: 
 
 3. The deadline for penalties is extended by [int] days
-
+  Response:       UPDATE 185487
+  Time:           1536.594 ms
+  Improved time: 
 
 4. How many subscriptions are active after [date]?
-
+  Response:       122223
+  Time:           43.153 ms
+  Improved time: 
