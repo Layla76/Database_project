@@ -40,7 +40,7 @@ Funding
 
 Data generation
 - Made a python script (generate.py) to generate all insert statements.
-- 200,000 rows per table
+- 200,000 rows per relation table
 
 
 ------------------------------------------------------------------------
@@ -49,11 +49,11 @@ Data generation
 1. How much money has the library spent on books?
   Response:       49583649665.73
   Time:           95.054 ms
-  Improved time:  
+  Improved time:  85.925 ms
   
 2. What was the most expensive procurement?
   Response:       499995.54
-  Time:           47.569 ms
+  Time:           93.568 ms
   Improved time:  
 
 3. How much have members paid in fines due for each type of penalty?
@@ -66,17 +66,17 @@ Data generation
 4. What is the average funding given per grant?
   Response:       250518.302880111000
   Time:           1894.002 ms
-  Improved time:  
+  Improved time:  ..... (grants)
 
-5. Add 90 days to insured end dates
+5. Add 90 days to each insurance plan
   Response:       UPDATE 192299
   Time:           11.262 ms
   Improved time: 
 
-6. Increase family subscriptions by $5
+6. Add 30 days to each subscription
   Response:       UPDATE 189059
   Time:           1793.834 ms
-  Improved time: 
+  Improved time: ..... (subscribed)
 
 7. Delete subscribed members who have a first time subscription and who have had more than 5 penalties
   Response:       DELETE 189059
@@ -102,7 +102,7 @@ Data generation
 3. The deadline for penalties is extended by [int] days
   Response:       UPDATE 185487
   Time:           1536.594 ms
-  Improved time: 
+  Improved time:  ..... (receives)
 
 4. How many subscriptions are active after [date]?
   Response:       122223
