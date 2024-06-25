@@ -49,62 +49,60 @@ Data generation
 1. How much money has the library spent on books?
   Response:       49583649665.73
   Time:           95.054 ms
-  Improved time:  85.925 ms
+  New time:       94.361 ms
   
 2. What was the most expensive procurement?
   Response:       499995.54
-  Time:           93.568 ms
-  Improved time:  
+  Time:           93.568 ms 47.910 ms
+  New time:       45.900 ms
 
-3. How much have members paid in fines due for each type of penalty?
-  Response:       damaged = 61714000.00
-                  late = 6178800.00
-                  lost = 18595500.00
-  Time:           57.240 ms
-  Improved time: 
+3. What is the average insurance plan length in use?
+  Response:       290.0300261571823046
+  Time:           96.274 ms
+  New time:       70.464 ms
 
 4. What is the average funding given per grant?
   Response:       250518.302880111000
-  Time:           1894.002 ms
-  Improved time:  ..... (grants)
+  Time:           ~1875 ms 99.040 ms
+  New time:       97.761 ms
 
 5. Add 90 days to each insurance plan
   Response:       UPDATE 192299
-  Time:           11.262 ms
-  Improved time: 
+  Time:           11.262 ms 1887.873 ms
+  New time:       2591.625 ms
 
 6. Add 30 days to each subscription
   Response:       UPDATE 189059
-  Time:           1793.834 ms
-  Improved time: ..... (subscribed)
+  Time:           1793.834 ms 1940.444 ms
+  New time:       1747.863 ms
 
 7. Delete subscribed members who have a first time subscription and who have had more than 5 penalties
   Response:       DELETE 189059
   Time:           434.161 ms
-  Improved time: 
+  New time:       351.778 ms
 
 8. Delete procurements that cost less than $30000
   Response:       DELETE 11633
   Time:           175.577 ms
-  Improved time: 
+  New time:       84.050 ms
 
 
 1. Delete payments that were less than $[numeric]
   Response:       DELETE 46844
   Time:           90.673 ms
-  Improved time: 
+  New time:       107.955 ms
 
 2. How many items are insured for over $[numeric]?
   Response:       10800
   Time:           111.030 ms
-  Improved time: 
+  New time:       83.017 ms
 
 3. The deadline for penalties is extended by [int] days
   Response:       UPDATE 185487
   Time:           1536.594 ms
-  Improved time:  ..... (receives)
+  New time:       1497.826 ms
 
 4. How many subscriptions are active after [date]?
   Response:       122223
   Time:           43.153 ms
-  Improved time: 
+  New time:       41.700 ms

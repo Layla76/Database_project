@@ -16,7 +16,7 @@ JOIN insured ON insurable_entities.id_ = insured.insurable_entity_id
 JOIN insurance ON insured.insurance_id = insurance.id_
 WHERE insurance.cost_ > $1;
 
-EXECUTE count_insured(1000000)
+EXECUTE count_insured(1000000);
 
 -- 3. The deadline for penalties is extended by [int] days
 PREPARE extend_penalty (int) AS 
