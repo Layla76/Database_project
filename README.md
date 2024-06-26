@@ -106,3 +106,16 @@ Data generation
   Response:       122223
   Time:           43.153 ms
   New time:       41.700 ms
+
+
+Explanation of constraint errors:
+1. subscriptions.is_renewable is not 0 or 1
+2. subscriptions.cost_ is negative
+3. wages.wage is not positive
+4. penalties.fee is negative
+5. insurance.cost_ is negative
+6. procured.cost_ is negative
+7. subscribed.start_date_ is later than end_date
+8. receives.issue_date is later than due_date
+9. insured.start_date_ is later than end_date
+10. grants.amount is negative
