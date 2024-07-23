@@ -42,157 +42,98 @@ ID - PK <br />
 Cost - cost of insurance plan <br />
 Provider ID - FK from providers table <br />
 
-
-Insured -- between assets and insurance:
-
-ID - PK so that it can be referenced by the “tables” table below
-
-Start date - start date of plan
-
-End date - end date of plan
-
-Status - have funds been transferred yet? 0 - no, 1 - yes
-
+Insured -- between assets and insurance: <br />
+ID - PK so that it can be referenced by the “tables” table below <br />
+Start date - start date of plan <br />
+End date - end date of plan <br />
+Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
 -----
 
-
 EMPLOYEE SALARIES
 
-Jobs:
+Jobs: <br />
+ID - PK <br />
+Title - the name of the position <br />
 
-ID - PK
+Wages: <br />
+ID - PK <br />
+Job ID - FK from jobs table <br />
+Wage - the set monthly wage <br />
 
-Title - the name of the position
-
-
-Wages:
-
-ID - PK
-
-Job ID - FK from jobs table
-
-Wage - the set monthly wage
+People (all people in the database): <br />
+ID - PK <br />
 
 
-People (all people in the database):
+Employees: <br />
+ID - PK <br />
+Person ID - FK from people table <br />
 
-ID - PK
-
-
-Employees:
-
-ID - PK
-
-Person ID - FK from people table
-
-Payments -- between wages and employees:
-
-ID - PK so that it can be referenced by the “tables” table below
-
-Date - payment due date
-
-Status - have funds been transferred yet? 0 - no, 1 - yes
-
+Payments -- between wages and employees: <br />
+ID - PK so that it can be referenced by the “tables” table below <br />
+Date - payment due date <br />
+Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
 -----
 
 
 LIBRARY MEMBERS
 
-Members:
+Members: <br />
+ID - PK <br />
+Person ID - FK from people table <br />
 
-ID - PK
+Subscriptions (member subscriptions): <br />
+ID - PK <br />
+Type - regular, student, soldier, senior <br />
+Cost - cost of subscription <br />
 
-Person ID - FK from people table
+Subscribed -- between members and subscriptions: <br />
+ID - PK so that it can be referenced by the “tables” table below <br />
+Start date - start date of subscription <br />
+End date - end date of subscription <br />
+Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
+Penalties (fines for members): <br />
+ID - PK <br />
+Type - late book, lost book, damaged book <br />
+Fee - cost of fine <br />
 
-Subscriptions (member subscriptions):
-
-ID - PK
-
-Type - regular, student, soldier, senior
-
-Cost - cost of subscription
-
-
-Subscribed -- between members and subscriptions:
-
-ID - PK so that it can be referenced by the “tables” table below
-
-Start date - start date of subscription
-
-End date - end date of subscription
-
-Status - have funds been transferred yet? 0 - no, 1 - yes
-
-
-Penalties (fines for members):
-
-ID - PK
-
-Type - late book, lost book, damaged book, late fine payment
-
-Fee - cost of fine
-
-
-Member penalties -- between members and penalties:
-
-ID - PK so that it can be referenced by the “tables” table below
-
-Issue date - date given
-
-Due date - date payment is due
-
-Status - have funds been transferred yet? 0 - no, 1 - yes
-
+Member penalties -- between members and penalties: <br />
+ID - PK so that it can be referenced by the “tables” table below <br />
+Issue date - date given <br />
+Due date - date payment is due <br />
+Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
 -----
-
 
 GRANTS
 
-Donors:
+Donors: <br />
+ID - PK <br />
+Name - name of donor <br />
 
-ID - PK
-
-Name - name of donor
-
-
-Grants:
-
-ID - PK
-
-Donor ID - FK from donor table
-
-Amount - amount given
-
-Date - date given
-
-Status - have funds been transferred yet? 0 - no, 1 - yes
-
+Grants: <br />
+ID - PK <br />
+Donor ID - FK from donor table <br />
+Amount - amount to be donated <br />
+Date - date of donation <br />
+Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
 -----
 
-
 CASH FLOW
 
-Tables (tables that list incoming or outgoing funds):
-
-ID - PK
-
-Name - name of table (grants, payments, procurements, insured, subscribed, member penalties)
-
-Flow direction - incoming or outgoing
+Tables (tables that list incoming or outgoing funds): <br />
+ID - PK <br />
+Name - name of table (grants, payments, procurements, insured, subscribed, member penalties) <br />
+Flow direction - incoming or outgoing <br />
 
 
-Cash flow:
-
-ID - PK
-
-Table ID - FK from tables table
-
-Type ID - FK from the given type table
+Cash flow: <br />
+ID - PK <br />
+Table ID - FK from tables table <br />
+Type ID - FK from the given type table <br />
 
 
 ![image](https://github.com/user-attachments/assets/4fbe96ee-06d3-42e6-a0dc-0ad4ba897e39)
