@@ -2,7 +2,7 @@
 
 Stage 1
 
-![image](https://github.com/user-attachments/assets/384ba81c-33e3-4ca7-b8b9-35f0c95c5779)
+![image](https://github.com/user-attachments/assets/d741cbfb-9e36-45d0-b530-ce83144a287a)
 <br /><br />
 The ERD shows all entities and relations related to billing.  <br /><br />
 
