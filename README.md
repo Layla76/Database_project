@@ -28,7 +28,7 @@ ID - PK
 Name - name of the supplier
 
 Procurements -- between assets and suppliers:
-	ID - PK so that it can be referenced by the “tables” table below
+ID - PK so that it can be referenced by the “tables” table below
 Date - date of procurement
 Status - have funds been transferred yet? 0 - no, 1 - yes
 ** The cost is based on the corresponding cost of the asset’s type ID
@@ -42,7 +42,7 @@ Cost - cost of insurance plan
 Provider ID - FK from providers table
 
 Insured -- between assets and insurance:
-	ID - PK so that it can be referenced by the “tables” table below
+ID - PK so that it can be referenced by the “tables” table below
 Start date - start date of plan
 End date - end date of plan
 Status - have funds been transferred yet? 0 - no, 1 - yes
