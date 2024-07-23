@@ -20,6 +20,11 @@ ID - PK
 Price - price of the room
 
 
+
+
+
+
+
 Building:
 
 ID - PK
