@@ -1,8 +1,7 @@
 # Database_project
 
-[ERD image](ERD.png)
+![image](https://github.com/user-attachments/assets/59a502a8-a608-487e-b8da-c8063f33d229)
 
-[DSD image](DSD.png)
 ![image](https://github.com/user-attachments/assets/4fbe96ee-06d3-42e6-a0dc-0ad4ba897e39)
 
 [Dump image 1](Dump1.png)
