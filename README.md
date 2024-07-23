@@ -1,5 +1,7 @@
 # Database_project
 
+Stage 1
+
 ![image](https://github.com/user-attachments/assets/59a502a8-a608-487e-b8da-c8063f33d229)
 
 The ERD shows all things related to billing.
@@ -151,6 +153,7 @@ Data generation
 
 ------------------------------------------------------------------------
 
+Stage 2
 
 1. How much money has the library spent on books?
   Response:       49583649665.73
