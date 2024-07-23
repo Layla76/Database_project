@@ -2,7 +2,7 @@
 
 Stage 1
 
-![image](https://github.com/user-attachments/assets/59a502a8-a608-487e-b8da-c8063f33d229)
+![image](https://github.com/user-attachments/assets/384ba81c-33e3-4ca7-b8b9-35f0c95c5779)
 <br /><br />
 The ERD shows all entities and relations related to billing.  <br /><br />
 
@@ -17,6 +17,8 @@ Flow direction - incoming - 1 or outgoing - 0 <br />
 Cash flow: <br />
 ID - PK <br />
 Table ID - FK from tables table <br />
+
+** All tables in Tables.Name will have non overlapping foreign keys from cash_flow.ID
 
 -----
 
@@ -38,7 +40,7 @@ Buildings: <br />
 Asset ID - PK, FK from asset table <br />
 Price - price of the building <br />
 
-** If the database where used normally (without random data generation), books, rooms, and buildings would have no overlapping keys with each other. This would be acheived by first creating a new asset row, and then using its ID to create a new book/room/building row.
+** Books, rooms, and buildings will have no overlapping keys with each other. This is acheived by first creating a new asset row, and then using its ID to create a new book/room/building row.
 
 Suppliers (sources to buy assets for the library): <br />
 ID - PK <br />
@@ -135,7 +137,7 @@ Date - date of donation <br />
 Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
 
-![image](https://github.com/user-attachments/assets/4fbe96ee-06d3-42e6-a0dc-0ad4ba897e39)
+![image](https://github.com/user-attachments/assets/7e4e4771-b7a2-464d-a891-a2bb7378f7ea)
 
 [Dump image 1](Dump1.png)
 [Dump image 2](Dump2.png)
