@@ -17,7 +17,7 @@ ID - PK  <br />
 Price - price of the room  <br />
 
 
-Building: <br />
+Buildings: <br />
 ID - PK <br />
 Price - price of the building <br />
 
