@@ -2,6 +2,135 @@
 
 ![image](https://github.com/user-attachments/assets/59a502a8-a608-487e-b8da-c8063f33d229)
 
+The ERD shows all things related to billing.
+
+LIBRARY ASSETS
+
+Books:
+ID - PK
+Price - price of the book
+
+Rooms:
+ID - PK
+Price - price of the room
+
+Building:
+ID - PK
+Price - price of the building
+
+Assets:
+ID - PK
+Type -  books, rooms, or buildings
+Type ID - FK from the table of the given type
+
+Suppliers (sources to buy assets for the library):
+ID - PK
+Name - name of the supplier
+
+Procurements -- between assets and suppliers:
+	ID - PK so that it can be referenced by the “tables” table below
+Date - date of procurement
+Status - have funds been transferred yet? 0 - no, 1 - yes
+** The cost is based on the corresponding cost of the asset’s type ID
+
+Providers (insurance providers):
+ID - PK
+
+Insurance (insurance plans):
+ID - PK
+Cost - cost of insurance plan
+Provider ID - FK from providers table
+
+Insured -- between assets and insurance:
+	ID - PK so that it can be referenced by the “tables” table below
+Start date - start date of plan
+End date - end date of plan
+Status - have funds been transferred yet? 0 - no, 1 - yes
+
+-----
+
+EMPLOYEE SALARIES
+
+Jobs:
+ID - PK
+Title - the name of the position
+
+Wages:
+ID - PK
+Job ID - FK from jobs table
+Wage - the set monthly wage
+
+People (all people in the database):
+ID - PK
+
+Employees:
+ID - PK
+Person ID - FK from people table
+
+Payments -- between wages and employees:
+	ID - PK so that it can be referenced by the “tables” table below
+Date - payment due date
+Status - have funds been transferred yet? 0 - no, 1 - yes
+
+-----
+
+LIBRARY MEMBERS
+
+Members:
+ID - PK
+Person ID - FK from people table
+
+Subscriptions (member subscriptions):
+ID - PK
+Type - regular, student, soldier, senior
+Cost - cost of subscription
+
+Subscribed -- between members and subscriptions:
+	ID - PK so that it can be referenced by the “tables” table below
+Start date - start date of subscription
+End date - end date of subscription
+Status - have funds been transferred yet? 0 - no, 1 - yes
+
+Penalties (fines for members):
+ID - PK
+Type - late book, lost book, damaged book, late fine payment
+Fee - cost of fine
+
+Member penalties -- between members and penalties:
+	ID - PK so that it can be referenced by the “tables” table below
+Issue date - date given
+Due date - date payment is due
+Status - have funds been transferred yet? 0 - no, 1 - yes
+
+-----
+
+GRANTS
+
+Donors:
+ID - PK
+Name - name of donor
+
+Grants:
+ID - PK
+Donor ID - FK from donor table
+Amount - amount given
+Date - date given
+Status - have funds been transferred yet? 0 - no, 1 - yes
+
+-----
+
+CASH FLOW
+
+Tables (tables that list incoming or outgoing funds):
+ID - PK
+Name - name of table (grants, payments, procurements, insured, subscribed, member penalties)
+Flow direction - incoming or outgoing
+
+Cash flow:
+ID - PK
+Table ID - FK from tables table
+Type ID - FK from the given type table
+
 ![image](https://github.com/user-attachments/assets/4fbe96ee-06d3-42e6-a0dc-0ad4ba897e39)
 
 [Dump image 1](Dump1.png)
@@ -9,34 +138,6 @@
 [Dump image 3](Dump3.png)
 [Dump image 4](Dump4.png)
 [Dump image 5](Dump5.png)
-
-The database entities relate to the subject “billing.”
-
-Wages
-- Provides a list of the types of wage options (hourly, salaried, overtime, bonus).
-- One of its attributes is job_id, a primary key from the jobs table, which makes it a foreign key in the wages table.
-- An additional entity that is needed is employees, so that Wwges x employees can interact in the relation "paid."
-
-Procurements
-- Provideds a list of the types of procurement options (new, rare, inter-library loan).
-- An additional entity that is needed is books, so that procurements x books can interact in the relation "procured."
-
-Subscriptions
-- Provides a list of the types of subscription options (ordinary, family, first time, extended).
-- An additional entity that is needed is members, so that subscriptions x members can interact in the relation "subscribed."
-
-Penalties
-- Provides a list of the types of penalty options (late, damaged, lost).
-- An additional entity that is needed is members, so that penalties x members can interact in the relation "receives."
-
-Insurance
-- Provides a list of the types of insurance options (book, room, building).
-- One of its attributes is provider_id, a primary key from the providers table, which makes it a foreign key in the insurance table.
-- An additional entity that is needed is insurable_entities, so that insurance x insurable_entities can interact in the relation "insured."
-
-Funding
-- Provides a list of the types of funding options (book, room, building).
-- An additional entity that is needed is funding_sources, so that funding x funding_sources can interact in the relation "grants."
 
 Data generation
 - Made a python script (generate.py) to generate all insert statements.
