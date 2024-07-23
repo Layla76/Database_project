@@ -4,16 +4,16 @@
 
 The ERD shows all things related to billing.
 
-LIBRARY ASSETS
+LIBRARY ASSETS  
 
-Books:
+Books:  
 
-ID - PK
+ID - PK  
 
-Price - price of the book
+Price - price of the book  
 
 
-Rooms:
+Rooms:  
 
 ID - PK
 
