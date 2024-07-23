@@ -3,35 +3,49 @@
 Stage 1
 
 ![image](https://github.com/user-attachments/assets/59a502a8-a608-487e-b8da-c8063f33d229)
+<br /><br />
+The ERD shows all entities and relations related to billing.  <br /><br />
 
-The ERD shows all things related to billing.
+
+CASH FLOW
+
+Tables (tables that list incoming or outgoing funds): <br />
+ID - PK <br />
+Name - name of table (grants, payments, procurements, insured, subscribed, member penalties) <br />
+Flow direction - incoming - 1 or outgoing - 0 <br />
+
+Cash flow: <br />
+ID - PK <br />
+Table ID - FK from tables table <br />
+
+-----
 
 LIBRARY ASSETS  <br />
-
-Books:  <br />
-ID - PK  <br />
-Price - price of the book  <br />
-
-Rooms:  <br />
-ID - PK  <br />
-Price - price of the room  <br />
-
-
-Buildings: <br />
-ID - PK <br />
-Price - price of the building <br />
 
 Assets: <br />
 ID - PK <br />
 Type -  books, rooms, or buildings <br />
-Type ID - FK from the table of the given type <br />
+
+Books:  <br />
+Asset ID - PK, FK from asset table  <br />
+Price - price of the book  <br />
+
+Rooms:  <br />
+Asset ID - PK, FK from asset table  <br />
+Price - price of the room  <br />
+
+Buildings: <br />
+Asset ID - PK, FK from asset table <br />
+Price - price of the building <br />
+
+** If the database where used normally (without random data generation), books, rooms, and buildings would have no overlapping keys with each other. This would be acheived by first creating a new asset row, and then using its ID to create a new book/room/building row.
 
 Suppliers (sources to buy assets for the library): <br />
 ID - PK <br />
 Name - name of the supplier <br />
 
 Procurements -- between assets and suppliers: <br />
-ID - PK so that it can be referenced by the “tables” table below <br />
+Cash flow ID - PK, FK from cash flow table <br />
 Date - date of procurement <br />
 Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 ** The cost is based on the corresponding cost of the asset’s type ID <br />
@@ -45,7 +59,7 @@ Cost - cost of insurance plan <br />
 Provider ID - FK from providers table <br />
 
 Insured -- between assets and insurance: <br />
-ID - PK so that it can be referenced by the “tables” table below <br />
+Cash flow ID - PK, FK from cash flow table <br />
 Start date - start date of plan <br />
 End date - end date of plan <br />
 Status - have funds been transferred yet? 0 - no, 1 - yes <br />
@@ -66,18 +80,16 @@ Wage - the set monthly wage <br />
 People (all people in the database): <br />
 ID - PK <br />
 
-
 Employees: <br />
 ID - PK <br />
 Person ID - FK from people table <br />
 
 Payments -- between wages and employees: <br />
-ID - PK so that it can be referenced by the “tables” table below <br />
+Cash flow ID - PK, FK from cash flow table <br />
 Date - payment due date <br />
 Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
 -----
-
 
 LIBRARY MEMBERS
 
@@ -91,7 +103,7 @@ Type - regular, student, soldier, senior <br />
 Cost - cost of subscription <br />
 
 Subscribed -- between members and subscriptions: <br />
-ID - PK so that it can be referenced by the “tables” table below <br />
+Cash flow ID - PK, FK from cash flow table <br />
 Start date - start date of subscription <br />
 End date - end date of subscription <br />
 Status - have funds been transferred yet? 0 - no, 1 - yes <br />
@@ -102,7 +114,7 @@ Type - late book, lost book, damaged book <br />
 Fee - cost of fine <br />
 
 Member penalties -- between members and penalties: <br />
-ID - PK so that it can be referenced by the “tables” table below <br />
+Cash flow ID - PK, FK from cash flow table <br />
 Issue date - date given <br />
 Due date - date payment is due <br />
 Status - have funds been transferred yet? 0 - no, 1 - yes <br />
@@ -116,26 +128,11 @@ ID - PK <br />
 Name - name of donor <br />
 
 Grants: <br />
-ID - PK <br />
+Cash flow ID - PK, FK from cash flow table <br />
 Donor ID - FK from donor table <br />
 Amount - amount to be donated <br />
 Date - date of donation <br />
 Status - have funds been transferred yet? 0 - no, 1 - yes <br />
-
------
-
-CASH FLOW
-
-Tables (tables that list incoming or outgoing funds): <br />
-ID - PK <br />
-Name - name of table (grants, payments, procurements, insured, subscribed, member penalties) <br />
-Flow direction - incoming - 1 or outgoing - 0 <br />
-
-
-Cash flow: <br />
-ID - PK <br />
-Table ID - FK from tables table <br />
-Type ID - FK from the given type table <br />
 
 
 ![image](https://github.com/user-attachments/assets/4fbe96ee-06d3-42e6-a0dc-0ad4ba897e39)
