@@ -2,7 +2,7 @@
 
 Stage 1
 
-![image](https://github.com/user-attachments/assets/d741cbfb-9e36-45d0-b530-ce83144a287a)
+![image](https://github.com/user-attachments/assets/baa9067a-0b49-4853-a668-74ceeb04e21c)
 <br /><br />
 The ERD shows all entities and relations related to billing.  <br /><br />
 
@@ -44,7 +44,6 @@ Price - price of the building <br />
 
 Suppliers (sources to buy assets for the library): <br />
 ID - PK <br />
-Name - name of the supplier <br />
 
 Procurements -- between assets and suppliers: <br />
 Cash flow ID - PK, FK from cash flow table <br />
@@ -72,7 +71,6 @@ EMPLOYEE SALARIES
 
 Jobs: <br />
 ID - PK <br />
-Title - the name of the position <br />
 
 Wages: <br />
 ID - PK <br />
@@ -127,7 +125,6 @@ GRANTS
 
 Donors: <br />
 ID - PK <br />
-Name - name of donor <br />
 
 Grants: <br />
 Cash flow ID - PK, FK from cash flow table <br />
@@ -137,7 +134,7 @@ Date - date of donation <br />
 Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
 
-![image](https://github.com/user-attachments/assets/7e4e4771-b7a2-464d-a891-a2bb7378f7ea)
+![image](https://github.com/user-attachments/assets/45edb5cc-99b0-4b02-9fca-fe7c4fa2fa73)
 
 [Dump image 1](Dump1.png)
 [Dump image 2](Dump2.png)
