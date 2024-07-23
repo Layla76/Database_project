@@ -4,7 +4,7 @@
 
 The ERD shows all things related to billing.
 
-LIBRARY ASSETS  <br /><br />
+LIBRARY ASSETS  <br />
 
 Books:  <br />
 ID - PK  <br />
@@ -16,51 +16,31 @@ Price - price of the room  <br />
 
 
 Building: <br />
-
 ID - PK <br />
-
 Price - price of the building <br />
 
+Assets: <br />
+ID - PK <br />
+Type -  books, rooms, or buildings <br />
+Type ID - FK from the table of the given type <br />
 
-Assets:
+Suppliers (sources to buy assets for the library): <br />
+ID - PK <br />
+Name - name of the supplier <br />
 
-ID - PK
+Procurements -- between assets and suppliers: <br />
+ID - PK so that it can be referenced by the “tables” table below <br />
+Date - date of procurement <br />
+Status - have funds been transferred yet? 0 - no, 1 - yes <br />
+** The cost is based on the corresponding cost of the asset’s type ID <br />
 
-Type -  books, rooms, or buildings
+Providers (insurance providers): <br />
+ID - PK <br />
 
-Type ID - FK from the table of the given type
-
-
-Suppliers (sources to buy assets for the library):
-
-ID - PK
-
-Name - name of the supplier
-
-
-Procurements -- between assets and suppliers:
-
-ID - PK so that it can be referenced by the “tables” table below
-
-Date - date of procurement
-
-Status - have funds been transferred yet? 0 - no, 1 - yes
-
-** The cost is based on the corresponding cost of the asset’s type ID
-
-
-Providers (insurance providers):
-
-ID - PK
-
-
-Insurance (insurance plans):
-
-ID - PK
-
-Cost - cost of insurance plan
-
-Provider ID - FK from providers table
+Insurance (insurance plans): <br />
+ID - PK <br />
+Cost - cost of insurance plan <br />
+Provider ID - FK from providers table <br />
 
 
 Insured -- between assets and insurance:
