@@ -8,18 +8,18 @@ LIBRARY ASSETS  <br /><br />
 
 Books:  <br />
 ID - PK  <br />
-Price - price of the book  <br /><br />
+Price - price of the book  <br />
 
 Rooms:  <br />
 ID - PK  <br />
-Price - price of the room  <br /><br />
+Price - price of the room  <br />
 
 
-Building:
+Building: <br />
 
-ID - PK
+ID - PK <br />
 
-Price - price of the building
+Price - price of the building <br />
 
 
 Assets:
