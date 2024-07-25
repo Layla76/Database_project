@@ -10,9 +10,9 @@ The ERD shows all entities and relations related to billing.  <br /><br />
 CASH FLOW
 
 Tables (tables that list incoming or outgoing funds): <br />
-<space><space>*<space>ID - PK <br />
-<space><space>*<space>Name - name of table (grants, payments, procurements, insured, subscribed, member penalties) <br />
-<space><space>*<space>Flow direction - incoming - 1 or outgoing - 0 <br />
+  ID - PK <br />
+  Name - name of table (grants, payments, procurements, insured, subscribed, member penalties) <br />
+  Flow direction - incoming - 1 or outgoing - 0 <br />
 
 Cash flow: <br />
 ID - PK <br />
