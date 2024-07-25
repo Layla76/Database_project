@@ -143,13 +143,13 @@ Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 [Dump image 4](Dump4.png)
 [Dump image 5](Dump5.png)
 
-The create file: (create.sql)
+The create file: [create.sql](create.sql)
 
 Data generation
 - Made a [python script](generate.py) to generate all insert statements.
 - 200,000 rows per relation table
 
-The json file: (ERD.json)
+The json file: [json](ERD.json)
 
 ------------------------------------------------------------------------
 
