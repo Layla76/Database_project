@@ -137,7 +137,7 @@ Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 
 ![image](https://github.com/user-attachments/assets/45edb5cc-99b0-4b02-9fca-fe7c4fa2fa73)
 
-[Dump image 1](Dump1.png)
+[Dump image 1](Dumps/Dump1.png)
 [Dump image 2](Dump2.png)
 [Dump image 3](Dump3.png)
 [Dump image 4](Dump4.png)
