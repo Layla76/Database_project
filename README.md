@@ -138,10 +138,10 @@ Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 ![image](https://github.com/user-attachments/assets/45edb5cc-99b0-4b02-9fca-fe7c4fa2fa73)
 
 [Dump image 1](Dumps/Dump1.png)
-[Dump image 2](Dump2.png)
-[Dump image 3](Dump3.png)
-[Dump image 4](Dump4.png)
-[Dump image 5](Dump5.png)
+[Dump image 2](Dumps/Dump2.png)
+[Dump image 3](Dumps/Dump3.png)
+[Dump image 4](Dumps/Dump4.png)
+[Dump image 5](Dumps/Dump5.png)
 
 The file for creating the tables: [create.sql](create.sql)
 
