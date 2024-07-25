@@ -143,7 +143,7 @@ Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 [Dump image 4](Dump4.png)
 [Dump image 5](Dump5.png)
 
-The create file: [create.sql](create.sql)
+The file for creating the tables: [create.sql](create.sql)
 
 Data generation
 - Made a [python script](generate.py) to generate all insert statements.
