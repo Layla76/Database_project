@@ -1,0 +1,92 @@
+Script started on Thu Jul 25 23:16:32 2024
+Restored session: Thu Jul 25 23:14:43 IDT 2024
+[1m[7m%[27m[1m[0m                                                                               
+ 
+]7;file://Laylas-MacBook-Air.local/Users/laylastein
+[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004hexitpg_dump -U laylastein -d postgres -F p --clean -f backupSQL.sql[K
+
+[K[K[A[A[34Cexit[K[1B
+[K[1B[K[A[A[38Cpg_dump -v -Fc postgresql://localhost:5432/postgres > backupSQL.sql[KPSQL.sql[1C[1C[1C[1C[?2004l[1B
+pg_dump: last built-in OID is 16383
+pg_dump: reading extensions
+pg_dump: identifying extension members
+pg_dump: reading schemas
+pg_dump: reading user-defined tables
+pg_dump: reading user-defined functions
+pg_dump: reading user-defined types
+pg_dump: reading procedural languages
+pg_dump: reading user-defined aggregate functions
+pg_dump: reading user-defined operators
+pg_dump: reading user-defined access methods
+pg_dump: reading user-defined operator classes
+pg_dump: reading user-defined operator families
+pg_dump: reading user-defined text search parsers
+pg_dump: reading user-defined text search templates
+pg_dump: reading user-defined text search dictionaries
+pg_dump: reading user-defined text search configurations
+pg_dump: reading user-defined foreign-data wrappers
+pg_dump: reading user-defined foreign servers
+pg_dump: reading default privileges
+pg_dump: reading user-defined collations
+pg_dump: reading user-defined conversions
+pg_dump: reading type casts
+pg_dump: reading transforms
+pg_dump: reading table inheritance information
+pg_dump: reading event triggers
+pg_dump: finding extension tables
+pg_dump: finding inheritance relationships
+pg_dump: reading column info for interesting tables
+pg_dump: flagging inherited columns in subtables
+pg_dump: reading partitioning data
+pg_dump: reading indexes
+pg_dump: flagging indexes in partitioned tables
+pg_dump: reading extended statistics
+pg_dump: reading constraints
+pg_dump: reading triggers
+pg_dump: reading rewrite rules
+pg_dump: reading policies
+pg_dump: reading row-level security policies
+pg_dump: reading publications
+pg_dump: reading publication membership of tables
+pg_dump: reading publication membership of schemas
+pg_dump: reading subscriptions
+pg_dump: reading large objects
+pg_dump: reading dependency data
+pg_dump: saving encoding = UTF8
+pg_dump: saving standard_conforming_strings = on
+pg_dump: saving search_path = 
+pg_dump: saving database definition
+pg_dump: dumping contents of table "public.assets"
+pg_dump: dumping contents of table "public.books"
+pg_dump: dumping contents of table "public.buildings"
+pg_dump: dumping contents of table "public.cash_flow"
+pg_dump: dumping contents of table "public.donors"
+pg_dump: dumping contents of table "public.employees"
+pg_dump: dumping contents of table "public.grants"
+pg_dump: dumping contents of table "public.insurance"
+pg_dump: dumping contents of table "public.insured"
+pg_dump: dumping contents of table "public.jobs"
+pg_dump: dumping contents of table "public.member_penalties"
+pg_dump: dumping contents of table "public.members"
+pg_dump: dumping contents of table "public.payments"
+pg_dump: dumping contents of table "public.penalties"
+pg_dump: dumping contents of table "public.people"
+pg_dump: dumping contents of table "public.procurements"
+pg_dump: dumping contents of table "public.providers"
+pg_dump: dumping contents of table "public.rooms"
+pg_dump: dumping contents of table "public.subscribed"
+pg_dump: dumping contents of table "public.subscriptions"
+pg_dump: dumping contents of table "public.suppliers"
+pg_dump: dumping contents of table "public.tables"
+pg_dump: dumping contents of table "public.wages"
+[1m[7m%[27m[1m[0m                                                                               
+ 
+]7;file://Laylas-MacBook-Air.local/Users/laylastein
+[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004heexit[?2004l
+
+
+Saving session...
+...saving history...truncating history files...
+...completed.
+
+Script done on Thu Jul 25 23:17:15 2024

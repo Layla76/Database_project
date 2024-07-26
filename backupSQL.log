@@ -1,0 +1,23 @@
+Script started on Thu Jul 25 23:11:58 2024
+Restored session: Thu Jul 25 23:10:53 IDT 2024
+[1m[7m%[27m[1m[0m                                                                               
+ 
+]7;file://Laylas-MacBook-Air.local/Users/laylastein
+[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004h[7mpg_dump -U your_username -d your_database -F p[7m [7m--clean -f backupSQL.sql[27m[K
+
+[K[A[A[34C[27mp[27mg[27m_[27md[27mu[27mm[27mp[27m [27m-[27mU[27m [27my[27mo[27mu[27mr[27m_[27mu[27ms[27me[27mr[27mn[27ma[27mm[27me[27m [27m-[27md[27m [27my[27mo[27mu[27mr[27m_[27md[27ma[27mt[27ma[27mb[27ma[27ms[27me[27m [27m-[27mF[27m [27mp [27m-[27m-[27mc[27ml[27me[27ma[27mn[27m [27m-[27mf[27m [27mb[27ma[27mc[27mk[27mu[27mp[27mS[27mQ[27mL[27m.[27ms[27mq[27ml[1B
+[K[A[25C
+[A[79C -F p -[P[23C [A[49C -F p --[P[22C [A[49C -F p -[1B
+[P[22C [A[49C -F p --cl[P[20C [A[49C[P[9Cle[P[19C [A[49C[P[10Cea[P[18C [A[49C[P[11Can[P[17C [A[49C[P[12Cn [P[16C [A[49C[P[13C -[P[15C [A[49C[P[14C-f[P[14C [A[49C[P[15Cf [P[13C [A[49C[P[16C b[P[12C [A[49C[P[17Cba[P[11C [A[49Cp -F p --clean -f backupSQL.sql[A[50Co -F p --clean -f backupSQL.sql[A[50Cs -F p --clean -f backupSQL.sql[A[50Ct -F p --clean -f backupSQL.sql[A[50Cg -F p --clean -f backupSQL.sql[A[50Cr -F p --clean -f backupSQL.sql[A[50Ce -F p --clean -f backupSQL.sql[A[50Cs -F p --clean -f backupSQL.sql[A[50C[P[22Cea[P[18C [A[37C[P[23Can[P[17C [A[37C[P[24Cn [P[16C [A[37C[P[25C -[P[15C [A[37C[P[26C-f[P[14C [A[37C[P[27Cf [P[13C [A[37C[P[28C b[P[12C [A[37C[P[29Cba[P[11C [A[37C[P[30Cac[P[10C [A[37C[P[31Cck[P[9C [A[37C[P[32CkupSQL.sql [A[37C[P[33CupSQL.sql [A[37C[P[34CpSQL.sql [A[37Cl -d postgres -F p --clean -f backupSQL.sql[A[38Ca -d postgres -F p --clean -f backupSQL.sql[A[38Cy -d postgres -F p --clean -f backupSQL.sql[A[38Cl -d postgres -F p --clean -f backupSQL.sql[A[38Ca -d postgres -F p --clean -f backupSQL.sql[A[38Cs -d postgres -F p --clean -f backupSQL.sql[A[38Ct -d postgres -F p --clean -f backupSQL.sql[A[38Ce -d postgres -F p --clean -f backupSQL.sql[A[38Ci -d postgres -F p --clean -f backupSQL.sql[A[38Cn -d postgres -F p --clean -f backupSQL.sql[A[38C[?2004l[2B
+
+[1m[7m%[27m[1m[0m                                                                               
+ 
+]7;file://Laylas-MacBook-Air.local/Users/laylastein
+[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004heexit[?2004l
+
+
+Saving session...
+...saving history...truncating history files...
+...completed.
+
+Script done on Thu Jul 25 23:14:43 2024
