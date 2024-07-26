@@ -218,7 +218,20 @@ Backup and restore<br />
 [Regular queries](Queries.sql)<br />
 [Parameterized queries](ParamsQueries)<br />
 [Old query time logs](OldTimes.log)<br />
-[Indexes and constraints](Constraints.sql)<br />
+
+Indexes: <br /><br />
+CREATE<br />
+UNIQUE INDEX asset_type<br />
+ON assets(id_, type_);<br />
+
+CREATE <br />
+UNIQUE INDEX table_name<br />
+ON tables(id_, name_);<br />
+
+CREATE<br />
+UNIQUE INDEX insured_dates<br />
+ON insured(cash_flow_id, start_date_, end_date);<br />
+
 [New query time logs](NewTimes.log)<br />
 
 ![image](https://github.com/user-attachments/assets/3c3f6011-122b-4f26-9351-de333d1adff5)

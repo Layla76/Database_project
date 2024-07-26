@@ -1,14 +1,14 @@
--- CREATE
--- UNIQUE INDEX asset_type
--- ON assets(id_, type_);
+CREATE
+UNIQUE INDEX asset_type
+ON assets(id_, type_);
 
--- CREATE 
--- UNIQUE INDEX table_name
--- ON tables(id_, name_);
+CREATE 
+UNIQUE INDEX table_name
+ON tables(id_, name_);
 
--- CREATE
--- UNIQUE INDEX insured_dates
--- ON insured(cash_flow_id, start_date_, end_date);
+CREATE
+UNIQUE INDEX insured_dates
+ON insured(cash_flow_id, start_date_, end_date);
 
 
 ALTER TABLE subscriptions
