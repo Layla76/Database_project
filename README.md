@@ -157,7 +157,7 @@ Data dump script: [dump](dump_data.py)<br />
 
 Stage 2<br />
 
-Backup and restore<br />
+Backup and restore:<br />
 
 [Backup log](backupSQL.log)<br />
 [Backup sql](backupSQL.sql)<br />
