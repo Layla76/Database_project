@@ -240,7 +240,7 @@ ON insured(cash_flow_id, start_date_, end_date);<br />
 
 Errors and explanations:<br />
 
-*** Errors due to updating amounts, costs, etc to a negative number ***<br />
+*** Errors due to updating amounts, costs, etc to a negative number ***<br /><br />
 psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:99: ERROR:  new row for relation "subscriptions" violates check constraint "sub_cost"<br />
 DETAIL:  Failing row contains (111111111, regular, -1.00).<br />
 <br />
