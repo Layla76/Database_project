@@ -218,7 +218,7 @@ Backup and restore<br />
 [Regular queries](Queries.sql)<br />
 [Parameterized queries](ParamsQueries)<br />
 [Old query time logs](OldTimes.log)<br />
-
+<br />
 Indexes: <br /><br />
 CREATE<br />
 UNIQUE INDEX asset_type<br />
@@ -234,8 +234,75 @@ ON insured(cash_flow_id, start_date_, end_date);<br />
 
 [New query time logs](NewTimes.log)<br />
 
-![image](https://github.com/user-attachments/assets/3c3f6011-122b-4f26-9351-de333d1adff5)
+![image](https://github.com/user-attachments/assets/3c3f6011-122b-4f26-9351-de333d1adff5)<br />
 
+[Constraints + updates to test contraints](Constraints.sql)<br />
 
-Explanation of constraint errors:
+Errors and explanations:<br />
 
+*** Errors due to updating amounts, costs, etc to a negative number ***<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:99: ERROR:  new row for relation "subscriptions" violates check constraint "sub_cost"<br />
+DETAIL:  Failing row contains (111111111, regular, -1.00).<br />
+<br />
+
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:102: ERROR:  new row for relation "wages" violates check constraint "pos_wage"<br />
+DETAIL:  Failing row contains (100000000, 340000000, -1.00).<br />
+<br />
+
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:105: ERROR:  new row for relation "penalties" violates check constraint "pen_fee"<br />
+DETAIL:  Failing row contains (111111111, lost, -1.00).<br />
+<br />
+
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:108: ERROR:  new row for relation "insurance" violates check constraint "pos_ins"<br />
+DETAIL:  Failing row contains (100000000, 111111111, -1.00).<br />
+<br />
+
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:111: ERROR:  new row for relation "books" violates check constraint "pos_price_bo"<br />
+DETAIL:  Failing row contains (100000000, -1.00).<br />
+<br />
+
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:114: ERROR:  new row for relation "rooms" violates check constraint "pos_price_r"<br />
+DETAIL:  Failing row contains (300010000, -1).<br />
+<br />
+
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:117: ERROR:  new row for relation "buildings" violates check constraint "pos_price_bu"<br />
+DETAIL:  Failing row contains (600010000, -1).<br />
+<br />
+
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:123: ERROR:  new row for relation "grants" violates check constraint "pos_grant"<br />
+DETAIL:  Failing row contains (100000000, 123000000, -1.00, 2023-07-03, 1).<br />
+<br /><br />
+
+*** Errors due to updating status to be something other than 1 or 0 ***<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:126: ERROR:  new row for relation "grants" violates check constraint "stat_grant"<br />
+DETAIL:  Failing row contains (100000000, 123000000, 44573.00, 2023-07-03, -1).<br />
+<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:129: ERROR:  new row for relation "procurements" violates check constraint "stat_proc"<br />
+DETAIL:  Failing row contains (400001000, 100000000, 400000000, 2024-03-16, -1).<br />
+<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:132: ERROR:  new row for relation "insured" violates check constraint "stat_insured"<br />
+DETAIL:  Failing row contains (100000100, 200000000, 100000000, 2023-09-03, 2024-02-02, -1).<br />
+<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:135: ERROR:  new row for relation "payments" violates check constraint "stat_pay"<br />
+DETAIL:  Failing row contains (200001000, 100000000, 100000000, 2024-03-01, -1).<br />
+<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:138: ERROR:  new row for relation "subscribed" violates check constraint "stat_sub"<br />
+DETAIL:  Failing row contains (600002000, 333333333, 200000000, 2023-09-04, 2024-08-20, -1).<br />
+<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:141: ERROR:  new row for relation "member_penalties" violates check constraint "stat_mem_pen"<br />
+DETAIL:  Failing row contains (800001000, 100000000, 222222222, 2023-01-24, 2024-11-09, -1).<br />
+<br /><br />
+
+*** Errors due to updating status to be something other than 1 or 0 ***<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:120: ERROR:  new row for relation "subscribed" violates check constraint "subscribed_dates"<br />
+DETAIL:  Failing row contains (600002000, 333333333, 200000000, 2024-08-21, 2024-08-20, 0).<br />
+<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:144: ERROR:  new row for relation "insured" violates check constraint "insured_dates"<br />
+DETAIL:  Failing row contains (100000100, 200000000, 100000000, 2024-02-03, 2024-02-02, 1).<br />
+<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:147: ERROR:  new row for relation "subscribed" violates check constraint "subscribed_dates"<br />
+DETAIL:  Failing row contains (600002000, 333333333, 200000000, 2024-08-21, 2024-08-20, 0).<br />
+<br />
+psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:150: ERROR:  new row for relation "member_penalties" violates check constraint "mem_pen_dates"<br />
+DETAIL:  Failing row contains (800001000, 100000000, 222222222, 2024-11-10, 2024-11-09, 1).<br />
+<br />
