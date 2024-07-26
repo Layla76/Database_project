@@ -46,7 +46,7 @@ ALTER TABLE penalties
 ADD CONSTRAINT pen_fee
 CHECK (fee >= 0);
 
--- -- status is 0 or 1 ********************************************************
+-- Status is 0 or 1 ********************************************************
 ALTER TABLE grants
 ADD CONSTRAINT stat_grant
 CHECK (status_ = 0 or status_ = 1);
@@ -71,7 +71,7 @@ ALTER TABLE member_penalties
 ADD CONSTRAINT stat_mem_pen
 CHECK (status_ = 0 or status_ = 1);
 
--- dates are chronological *************************************************
+-- Dates are chronological *************************************************
 DELETE FROM insured
 WHERE start_date_ > end_date;
 
@@ -94,7 +94,7 @@ ADD CONSTRAINT mem_pen_dates
 CHECK (issue_date <= due_date);
 
 
--- Create errors ***********************************************************
+-- Creating errors ***********************************************************
 UPDATE subscriptions
 SET cost_ = -1;
 
