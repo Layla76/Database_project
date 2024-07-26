@@ -169,98 +169,50 @@ Backup and restore<br />
 1. How much money has the library spent on books?<br />
   Response:       922476.57
   <br />
-  Time:           107.041 ms
-  <br />
-  New time:       
-  <br />
 
 2. What was the most expensive procurement?<br />
   Response:       4999769
-  <br />
-  Time:           104.877 ms
-  <br />
-  New time:       
   <br />
 
 3. What is the average insurance plan length in use?<br />
   Response:       183.1465088248385822
   <br />
-  Time:           146.756 ms
-  <br />
-  New time:       
-<br />
 
 4. What is the library's balance?<br />
   Response:       -22044209639.12
-<br />
-  Time:           1357.446 ms
-<br />
-  New time:       
 <br />
 
 5. Add 90 days to each insurance plan<br />
   Response:        UPDATE 199958
 <br />
-  Time:           2428.639 ms
-<br />
-  New time:       
-<br />
 
 6. Add 30 days to each subscription<br />
   Response:       UPDATE 199076
-<br />
-  Time:           2350.154 ms
-<br />
-  New time:       
 <br />
 
 7. Delete subscribed members who have had more than 5 penalties<br />
   Response:        DELETE 199076
 <br />
-  Time:           310.028 ms
-<br />
-  New time:       
-<br />
 
 8. Delete procurements that cost more than 3,000,000<br />
   Response:       DELETE 21202
-<br />
-  Time:           146.227 ms
-<br />
-  New time:       
 <br />
 
 
 1. Delete payments that were less than $[numeric]<br />
   Response:       DELETE 196347
 <br />
-  Time:           431.255 ms
-<br />
-  New time:       
-<br />
 
 2. How many items are insured for over $[numeric]?<br />
   Response:       63660
-<br />
-  Time:           123.355 ms
-<br />
-  New time:       
 <br />
 
 3. The deadline for penalties is extended by [int] days<br />
   Response:       UPDATE 198744
 <br />
-  Time:           2908.212 ms
-<br />
-  New time:       
-<br />
 
 4. How many subscriptions are active after [date]?<br />
   Response:       124944
-<br />
-  Time:           62.088 ms
-<br />
-  New time:       
 <br />
 
 [Regular queries](Queries.sql)<br />
@@ -268,6 +220,9 @@ Backup and restore<br />
 [Old query time logs](OldTimes.log)<br />
 [Indexes and constraints](Constraints.sql)<br />
 [New query time logs](NewTimes.log)<br />
+
+![image](https://github.com/user-attachments/assets/3c3f6011-122b-4f26-9351-de333d1adff5)
+
 
 Explanation of constraint errors:
 
