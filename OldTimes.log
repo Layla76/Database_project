@@ -1,16 +1,3 @@
-Script started on Fri Jul 26 00:49:04 2024
-Restored session: Fri Jul 26 00:47:31 IDT 2024
-[1m[7m%[27m[1m[0m                                                                                                                   
- 
-]7;file://Laylas-MacBook-Air.local/Users/laylastein
-[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004hexit"/Applications/Postgres.app/Contents/Versions/16/bin/psql" -p5432 "postgres"[?2004l
-
-psql (16.3 (Postgres.app))
-Type "help" for help.
-
-postgres=# \timing on
-Timing is on.
-postgres=# \timing on[12GDROP DATABASE template1;[12G\exit[K[12GCREATE TABLE aaa;[12G\d[KtDROP TABLE IF EXISTS books;[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K\i /Users/laylastein/Database_project/Database_project/Queries.sql
 postgres=# \i /Users/laylastein/Database_project/Database_project/Queries.sql
 total_book_cost 
 -----------------
@@ -18,43 +5,6 @@ total_book_cost
 (1 row)
 
 Time: 107.041 ms
-postgres=# 
-zsh: suspended  "/Applications/Postgres.app/Contents/Versions/16/bin/psql" -p5432 "postgres"
-[1m[7m%[27m[1m[0m                                                                                                                   
- 
-]7;file://Laylas-MacBook-Air.local/Users/laylastein
-[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004heexit[?2004l
-
-zsh: you have suspended jobs.
-[1m[7m%[27m[1m[0m                                                                                                                   
- 
-]7;file://Laylas-MacBook-Air.local/Users/laylastein
-[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004heexit[?2004l
-
-
-Saving session...
-...saving history...truncating history files...
-...completed.
-
-Script done on Fri Jul 26 00:50:40 2024
-Script started on Fri Jul 26 02:49:04 2024
-Restored session: Fri Jul 26 00:50:40 IDT 2024
-[1m[7m%[27m[1m[0m                                                                                                                   
- 
-]7;file://Laylas-MacBook-Air.local/Users/laylastein
-[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004hexit"/Applications/Postgres.app/Contents/Versions/16/bin/psql" -p5432 "postgres"[?2004l
-
-psql (16.3 (Postgres.app))
-Type "help" for help.
-
-postgres=# DROP DATABASE template1;[12G\exit[K[12GDROP DATABASE template1;[12G[K\i /Users/laylastein/Database_project/Database_project/Queries.sql
-   max   
----------
- 4999769
-(1 row)
-
-postgres=# \timing on
-Timing is on.
 postgres=# \timing on[13Gi /Users/laylastein/Database_project/Database_project/Queries.sql
    max   
 ---------
@@ -116,22 +66,3 @@ Time: 4.473 ms
 (1 row)
 
 Time: 62.088 ms
-postgres=# 
-zsh: suspended  "/Applications/Postgres.app/Contents/Versions/16/bin/psql" -p5432 "postgres"
-[1m[7m%[27m[1m[0m                                                                                                                   
- 
-]7;file://Laylas-MacBook-Air.local/Users/laylastein
-[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004heexig t[?2004l
-
-zsh: you have suspended jobs.
-[1m[7m%[27m[1m[0m                                                                                                                   
- 
-]7;file://Laylas-MacBook-Air.local/Users/laylastein
-[0m[27m[24m[Jlaylastein@Laylas-MacBook-Air ~ % [K[?2004heexit[?2004l
-
-
-Saving session...
-...saving history...truncating history files...
-...completed.
-
-Script done on Fri Jul 26 01:49:45 2024

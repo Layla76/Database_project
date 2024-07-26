@@ -1,14 +1,14 @@
-CREATE
-UNIQUE INDEX grants_index
-ON grants (funding_source_id, funding_id, amount, date_);
+-- CREATE
+-- UNIQUE INDEX asset_type
+-- ON assets(id_, type_);
 
-CREATE
-UNIQUE INDEX procured_index
-ON procured (procurement_id, book_id, date_);
+-- CREATE 
+-- UNIQUE INDEX table_name
+-- ON tables(id_, name_);
 
-CREATE
-UNIQUE INDEX insured_index
-ON insured (insurance_id, insurable_entity_id, start_date_, end_date);
+-- CREATE
+-- UNIQUE INDEX insured_dates
+-- ON insured(cash_flow_id, start_date_, end_date);
 
 
 ALTER TABLE subscriptions

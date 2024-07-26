@@ -18,7 +18,7 @@ WHERE assets.type_ = 'building' and procurements.status_ = 1;
 SELECT AVG(end_date - start_date_) AS avg_length_in_days
 FROM insured
 INNER JOIN insurance ON insurance.id_ = insured.insurance_id
-INNER JOIN assets ON assets.id_ = insured.asset_id
+INNER JOIN assets ON assets.id_ = insured.asset_id;
 
 -- 4. What is the library's balance?
  SELECT
@@ -122,7 +122,7 @@ AS balance;
 
 -- 5. Add 90 days to each insurance plan
 UPDATE insured
-SET end_date = end_date + 90
+SET end_date = end_date + 90;
 
 -- 6. Add 30 days to each subscription
 UPDATE subscribed

@@ -31,4 +31,4 @@ SELECT COUNT(subscribed.subscription_id)
 FROM subscribed
 WHERE end_date > $1;
 
-EXECUTE active_subs('01-01-2024');
+EXECUTE active_subs('01-01-2023');

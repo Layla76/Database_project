@@ -1,0 +1,65 @@
+postgres=# \i /Users/laylastein/Database_project/Database_project/Constraints.sql
+CREATE INDEX
+Time: 85.868 ms
+CREATE INDEX
+Time: 4.111 ms
+CREATE INDEX
+Time: 223.296 ms
+postgres=# \i /Users/laylastein/Database_project/Database_project/Queries.sql
+ total_book_cost 
+-----------------
+       912958.80
+(1 row)
+
+Time: 103.059 ms
+   max   
+---------
+ 2999584
+(1 row)
+
+Time: 44.639 ms
+  avg_length_in_days  
+----------------------
+ 452.6651546824833215
+(1 row)
+
+Time: 107.071 ms
+    balance     
+----------------
+ -4149605467.11
+(1 row)
+
+Time: 736.981 ms
+UPDATE 199958
+Time: 2162.096 ms (00:02.162)
+UPDATE 199076
+Time: 2116.317 ms (00:02.116)
+DELETE 199076
+Time: 271.415 ms
+DELETE 0
+Time: 112.029 ms
+postgres=# \i /Users/laylastein/Database_project/Database_project/ParamsQueries.sql
+psql:/Users/laylastein/Database_project/Database_project/ParamsQueries.sql:7: ERROR:  prepared statement "del_payments" already exists
+Time: 7.602 ms
+DELETE 196347
+Time: 382.932 ms
+psql:/Users/laylastein/Database_project/Database_project/ParamsQueries.sql:17: ERROR:  prepared statement "count_insured" already exists
+Time: 1.447 ms
+ count 
+-------
+ 63660
+(1 row)
+
+Time: 105.563 ms
+psql:/Users/laylastein/Database_project/Database_project/ParamsQueries.sql:24: ERROR:  prepared statement "extend_penalty" already exists
+Time: 0.249 ms
+UPDATE 198744
+Time: 2545.692 ms (00:02.546)
+psql:/Users/laylastein/Database_project/Database_project/ParamsQueries.sql:32: ERROR:  prepared statement "active_subs" already exists
+Time: 2.308 ms
+ count  
+--------
+ 198868
+(1 row)
+
+Time: 57.822 ms
