@@ -241,7 +241,7 @@ CREATE<br />
 UNIQUE INDEX insured_dates<br />
 ON insured(cash_flow_id, start_date_, end_date);<br />
 
------
+----- 
 <br />
 
 [New query time logs](NewTimes.log)<br />
