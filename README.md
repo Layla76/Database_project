@@ -13,13 +13,13 @@ CASH FLOW
 Tables (tables that list incoming or outgoing funds): <br />
 ID - PK <br />
 Name - name of table (grants, payments, procurements, insured, subscribed, member penalties) <br />
-Flow direction - incoming - 1 or outgoing - 0 <br />
+Flow direction - incoming - 1 or outgoing - -1 <br />
 
 Cash flow: <br />
 ID - PK <br />
 Table ID - FK from tables table <br />
 
-** All tables in Tables.Name will have non overlapping foreign keys from cash_flow.ID
+** All tables in tables.name will have non overlapping foreign keys from cash_flow.ID
 
 -----
 
@@ -143,88 +143,131 @@ Status - have funds been transferred yet? 0 - no, 1 - yes <br />
 [Dump image 4](Dumps/Dump4.png)
 [Dump image 5](Dumps/Dump5.png)
 
-The file for creating the tables: [create.sql](create.sql)
+The file for creating the tables: [create.sql](create.sql)<br />
 
 Data generation
 - Made a [python script](generate.py) to generate all insert statements.
 - 200,000 rows per relation table
 
-The json file: [json](ERD.json)
+The json file: [json](ERD.json)<br />
+
+Data dump script: [dump](dump_data.py)<br />
 
 ------------------------------------------------------------------------
 
-Stage 2
+Stage 2<br />
 
-1. How much money has the library spent on books?
-  Response:       49583649665.73
-  Time:           95.054 ms
-  New time:       94.361 ms
-  
-2. What was the most expensive procurement?
-  Response:       499995.54
-  Time:           93.568 ms 47.910 ms
-  New time:       45.900 ms
+Backup and restore<br />
 
-3. What is the average insurance plan length in use?
-  Response:       290.0300261571823046
-  Time:           96.274 ms
-  New time:       70.464 ms
-
-4. What is the average funding given per grant?
-  Response:       250518.302880111000
-  Time:           ~1875 ms 99.040 ms
-  New time:       97.761 ms
-
-5. Add 90 days to each insurance plan
-  Response:       UPDATE 192299
-  Time:           11.262 ms 1887.873 ms
-  New time:       2591.625 ms
-
-6. Add 30 days to each subscription
-  Response:       UPDATE 189059
-  Time:           1793.834 ms 1940.444 ms
-  New time:       1747.863 ms
-
-7. Delete subscribed members who have a first time subscription and who have had more than 5 penalties
-  Response:       DELETE 189059
-  Time:           434.161 ms
-  New time:       351.778 ms
-
-8. Delete procurements that cost less than $30000
-  Response:       DELETE 11633
-  Time:           175.577 ms
-  New time:       84.050 ms
+[Backup log](backupSQL.log)<br />
+[Backup sql](backupSQL.sql)<br />
+[Backup log](backupPSQL.log)<br />
+[Backup psql](backupPSQL.sql)<br />
 
 
-1. Delete payments that were less than $[numeric]
-  Response:       DELETE 46844
-  Time:           90.673 ms
-  New time:       107.955 ms
 
-2. How many items are insured for over $[numeric]?
-  Response:       10800
-  Time:           111.030 ms
-  New time:       83.017 ms
+1. How much money has the library spent on books?<br />
+  Response:       922476.57
+  <br />
+  Time:           107.041 ms
+  <br />
+  New time:       
+  <br />
 
-3. The deadline for penalties is extended by [int] days
-  Response:       UPDATE 185487
-  Time:           1536.594 ms
-  New time:       1497.826 ms
+2. What was the most expensive procurement?<br />
+  Response:       4999769
+  <br />
+  Time:           104.877 ms
+  <br />
+  New time:       
+  <br />
 
-4. How many subscriptions are active after [date]?
-  Response:       122223
-  Time:           43.153 ms
-  New time:       41.700 ms
+3. What is the average insurance plan length in use?<br />
+  Response:       183.1465088248385822
+  <br />
+  Time:           146.756 ms
+  <br />
+  New time:       
+<br />
 
+4. What is the library's balance?<br />
+  Response:       -22044209639.12
+<br />
+  Time:           1357.446 ms
+<br />
+  New time:       
+<br />
+
+5. Add 90 days to each insurance plan<br />
+  Response:        UPDATE 199958
+<br />
+  Time:           2428.639 ms
+<br />
+  New time:       
+<br />
+
+6. Add 30 days to each subscription<br />
+  Response:       UPDATE 199076
+<br />
+  Time:           2350.154 ms
+<br />
+  New time:       
+<br />
+
+7. Delete subscribed members who have had more than 5 penalties<br />
+  Response:        DELETE 199076
+<br />
+  Time:           310.028 ms
+<br />
+  New time:       
+<br />
+
+8. Delete procurements that cost more than 3,000,000<br />
+  Response:       DELETE 21202
+<br />
+  Time:           146.227 ms
+<br />
+  New time:       
+<br />
+
+
+1. Delete payments that were less than $[numeric]<br />
+  Response:       DELETE 196347
+<br />
+  Time:           431.255 ms
+<br />
+  New time:       
+<br />
+
+2. How many items are insured for over $[numeric]?<br />
+  Response:       63660
+<br />
+  Time:           123.355 ms
+<br />
+  New time:       
+<br />
+
+3. The deadline for penalties is extended by [int] days<br />
+  Response:       UPDATE 198744
+<br />
+  Time:           2908.212 ms
+<br />
+  New time:       
+<br />
+
+4. How many subscriptions are active after [date]?<br />
+  Response:       124944
+<br />
+  Time:           62.088 ms
+<br />
+  New time:       
+<br />
+
+[Regular queries](Queries.sql)<br />
+[Parameterized queries](ParamsQueries)<br />
+[Old query time logs](OldTimes.log)<br />
+[Indexes and constraints](Constraints.sql)<br />
+[New query time logs](NewTimes.log)<br />
 
 Explanation of constraint errors:
-1. subscriptions.is_renewable is not 0 or 1
-2. subscriptions.cost_ is negative
-3. wages.wage is not positive
-4. penalties.fee is negative
-5. insurance.cost_ is negative
-6. procured.cost_ is negative
-7. subscribed.start_date_ is later than end_date
-8. receives.issue_date is later than due_date
-9. insured.start_date_ is later than end_date
-10. grants.amount is negative
+
