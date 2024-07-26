@@ -167,6 +167,8 @@ Backup and restore<br />
 -----
 <br />
 
+[Regular queries](Queries.sql)<br />
+
 1. How much money has the library spent on books?<br />
   Response:       922476.57
   <br />
@@ -197,8 +199,9 @@ Backup and restore<br />
 
 8. Delete procurements that cost more than 3,000,000<br />
   Response:       DELETE 21202
-<br />
+<br /><br />
 
+[Parameterized queries](ParamsQueries)<br />
 
 1. Delete payments that were less than $[numeric]<br />
   Response:       DELETE 196347
@@ -217,10 +220,8 @@ Backup and restore<br />
 <br />
 
 -----
-<br />
+<br /><br />
 
-[Regular queries](Queries.sql)<br />
-[Parameterized queries](ParamsQueries)<br />
 [Old query time logs](OldTimes.log)<br />
 <br />
 
