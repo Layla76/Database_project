@@ -7,41 +7,41 @@ s = [0, 1]
 
 # ENTITIES
 
-# assets = 400,000 -- 100000000 - 399999000
+# assets = 100,000
 with open('insert.sql', 'a') as file:
     types = ["book", "room", "building"]
-    for i in range(400_000):
+    for i in range(100_000):
         id_ = f'{i + 1:<9}'.replace(' ', '0')
-        if i < 95_000:
+        if i < 28_000:
             type_ = "'" + types[0] + "'"
-        elif i < 195_000:
+        elif i < 58_000:
             type_ = "'" + types[1] + "'"
-        elif i < 295_000:
+        elif i < 88_000:
             type_ = "'" + types[2] + "'"
         else:
             type_ = "'" + random.choice(types) + "'"
         insert_statement = f"INSERT INTO assets (id_, type_) VALUES ({id_}, {type_});\n"
         file.write(insert_statement)
 
-# books = 100,000 --- 100000000 - 999990000
+# books = 30,000
 with open('insert.sql', 'a') as file:
-    for i in range(100_000):
+    for i in range(30_000):
         asset_id = f'{i + 1:<9}'.replace(' ', '0')
         price = round(random.uniform(2, 50), 2)
         insert_statement = f"INSERT INTO books (asset_id, price) VALUES ({asset_id}, {price});\n"
         file.write(insert_statement)
 
-# rooms = 100,000 --- 100001000 - 199999000
+# rooms = 30,000
 with open('insert.sql', 'a') as file:
-    for i in range(100_001, 200_000):
+    for i in range(30_001, 60_000):
         asset_id = f'{i:<9}'.replace(' ', '0')
         price = round(random.uniform(2000, 10000), 0)
         insert_statement = f"INSERT INTO rooms (asset_id, price) VALUES ({asset_id}, {price});\n"
         file.write(insert_statement)
 
-# buildings = 100,000 --- 100000100 - 299999000
+# buildings = 30,000
 with open('insert.sql', 'a') as file:
-    for i in range(200_001, 300_000):
+    for i in range(60_001, 90_000):
         asset_id = f'{i:<9}'.replace(' ', '0')
         price = round(random.uniform(100000, 5000000), 0)
         insert_statement = f"INSERT INTO buildings (asset_id, price) VALUES ({asset_id}, {price});\n"
@@ -144,7 +144,7 @@ with open('insert.sql', 'a') as file:
 # tables = 6
 with open('insert.sql', 'a') as file:
     names = ["grants", "procurements", "insured", "payments", "subscribed", "member_penalties"]
-    flow = [1, 0, 0, 0, 1, 1]
+    flow = [1, -1, -1, -1, 1, 1]
     for i in range(1, 7):
         id_ = f'{i:<9}'.replace(' ', '0')
         name = "'" + names[i - 1] + "'"
@@ -193,7 +193,7 @@ with open('insert.sql', 'a') as file:
     for i in range(400_000, 600_000):
         cash_flow_id = f'{i + 1:<9}'.replace(' ', '0')
         supplier_id = f'{(i % 10_000) + 1:<9}'.replace(' ', '0')
-        asset_id = f'{i + 1:<9}'.replace(' ', '0')
+        asset_id = f'{i % 90_000 :<9}'.replace(' ', '0')
         date = "'" + str(fake.date_between(start_date=datetime.date(2023, 1, 1), end_date=datetime.date(2024, 9, 15))) + "'"
         status = random.choice(s)
         insert_statement = f"INSERT INTO procurements (cash_flow_id, supplier_id, asset_id, date_, status_) VALUES " \
@@ -231,7 +231,7 @@ with open('insert.sql', 'a') as file:
     for i in range(1_000_000, 1_200_000):
         cash_flow_id = f'{i + 1:<9}'.replace(' ', '0')
         insurance_id = f'{(i % 27) + 1:<9}'.replace(' ', '0')
-        asset_id = f'{i + 1:<9}'.replace(' ', '0')
+        asset_id = f'{i % 90_000:<9}'.replace(' ', '0')
         start_date = "'" + str(fake.date_between(start_date=datetime.date(2023, 1, 1), end_date=datetime.date(2024, 9, 15))) + "'"
         end_date = "'" + str(fake.date_between(start_date=datetime.date(2023, 1, 1), end_date=datetime.date(2025, 9, 15))) + "'"
         status = random.choice(s)
