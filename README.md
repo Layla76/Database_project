@@ -164,7 +164,8 @@ Backup and restore<br />
 [Backup log](backupPSQL.log)<br />
 [Backup psql](backupPSQL.sql)<br />
 
-
+-----
+<br />
 
 1. How much money has the library spent on books?<br />
   Response:       922476.57
@@ -215,11 +216,18 @@ Backup and restore<br />
   Response:       124944
 <br />
 
+-----
+<br />
+
 [Regular queries](Queries.sql)<br />
 [Parameterized queries](ParamsQueries)<br />
 [Old query time logs](OldTimes.log)<br />
 <br />
-Indexes: <br /><br />
+
+-----
+<br />
+
+*** Indexes: <br /><br />
 CREATE<br />
 UNIQUE INDEX asset_type<br />
 ON assets(id_, type_);<br />
@@ -231,6 +239,9 @@ ON tables(id_, name_);<br />
 CREATE<br />
 UNIQUE INDEX insured_dates<br />
 ON insured(cash_flow_id, start_date_, end_date);<br />
+
+-----
+<br />
 
 [New query time logs](NewTimes.log)<br />
 
