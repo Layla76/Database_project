@@ -252,7 +252,7 @@ ON insured(cash_flow_id, start_date_, end_date);<br />
 
 Errors and explanations:<br />
 
-*** Errors due to updating amounts, costs, etc to a negative number ***<br /><br />
+////////////////////////////////////////////////// Errors due to updating amounts, costs, etc to a negative number //////////////////////////////////////////////////<br /><br />
 psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:99: ERROR:  new row for relation "subscriptions" violates check constraint "sub_cost"<br />
 DETAIL:  Failing row contains (111111111, regular, -1.00).<br />
 <br />
@@ -288,7 +288,7 @@ DETAIL:  Failing row contains (100000000, 123000000, -1.00, 2023-07-03, 1).<br /
 -----
 <br />
 
-*** Errors due to updating status to be something other than 1 or 0 ***<br /><br />
+////////////////////////////////////////////////// Errors due to updating status to be something other than 1 or 0 //////////////////////////////////////////////////<br /><br />
 psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:126: ERROR:  new row for relation "grants" violates check constraint "stat_grant"<br />
 DETAIL:  Failing row contains (100000000, 123000000, 44573.00, 2023-07-03, -1).<br />
 <br />
@@ -311,7 +311,7 @@ DETAIL:  Failing row contains (800001000, 100000000, 222222222, 2023-01-24, 2024
 -----
 <br />
 
-*** Errors due to updating start dates to be after end dates ***<br /><br />
+////////////////////////////////////////////////// Errors due to updating start dates to be after end dates //////////////////////////////////////////////////<br /><br />
 psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:120: ERROR:  new row for relation "subscribed" violates check constraint "subscribed_dates"<br />
 DETAIL:  Failing row contains (600002000, 333333333, 200000000, 2024-08-21, 2024-08-20, 0).<br />
 <br />
