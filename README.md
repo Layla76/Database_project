@@ -220,7 +220,7 @@ Backup and restore:<br />
 <br />
 
 -----
-<br /><br />
+<br />
 
 [Old query time logs](OldTimes.log)<br />
 <br />
