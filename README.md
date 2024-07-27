@@ -247,7 +247,8 @@ ON insured(cash_flow_id, start_date_, end_date);<br />
 
 [New query time logs](NewTimes.log)<br />
 
-![image](https://github.com/user-attachments/assets/3c3f6011-122b-4f26-9351-de333d1adff5)<br />
+![image](https://github.com/user-attachments/assets/0991703a-5b29-417f-bf6c-0ee67d2a9851)
+<br />
 
 [Constraints + updates to test contraints](Constraints.sql)<br />
 
