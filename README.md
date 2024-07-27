@@ -326,3 +326,16 @@ DETAIL:  Failing row contains (600002000, 333333333, 200000000, 2024-08-21, 2024
 psql:/Users/laylastein/Database_project/Database_project/Constraints.sql:150: ERROR:  new row for relation "member_penalties" violates check constraint "mem_pen_dates"<br />
 DETAIL:  Failing row contains (800001000, 100000000, 222222222, 2024-11-10, 2024-11-09, 1).<br />
 <br />
+
+-----
+
+Stage 3<br />
+
+New queries using joins
+
+1. Time: 90.838 ms
+2. Time: 55.907 ms
+3. Time: 116.002 ms
+
+
+

@@ -163,3 +163,29 @@ WHERE procurements.asset_id IN (
   INNER JOIN assets ON assets.id_ = procurements.asset_id
   WHERE buildings.price > 3000000 and assets.type_ = 'building'
 );
+
+
+-- Join queries
+
+-- 1. Which members have had more than 10 penalties?
+SELECT members.person_id,
+    COUNT(member_penalties.penalty_id) AS penalty_count
+FROM members
+INNER JOIN member_penalties ON members.person_id = member_penalties.member_id
+INNER JOIN penalties ON penalties.id_ = member_penalties.penalty_id
+GROUP BY members.person_id
+HAVING COUNT(member_penalties.penalty_id) > 10;
+
+-- 2. How much money has been given in wages for the past month to employees who earn less than 5,000?
+SELECT SUM(wages.wage) AS total_for_month
+FROM wages
+INNER JOIN payments ON wages.id_ = payments.wage_id
+WHERE wages.wage < 5000 and CURRENT_DATE - payments.date_ < 31;
+
+-- 3. Which buildings haven't had their insurance paid for yet?
+SELECT buildings.asset_id
+FROM buildings
+INNER JOIN assets ON assets.id_ = buildings.asset_id
+INNER JOIN procurements ON assets.id_ = procurements.asset_id
+WHERE assets.type_ = 'building' and procurements.status_ = 0;
+
