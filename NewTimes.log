@@ -34,8 +34,10 @@ UPDATE 199958
 Time: 2162.096 ms (00:02.162)
 UPDATE 199076
 Time: 2116.317 ms (00:02.116)
-DELETE 199076
-Time: 271.415 ms
+DELETE 0
+Time: 56.434 ms
+DELETE 0
+Time: 19.329 ms
 DELETE 0
 Time: 112.029 ms
 postgres=# \i /Users/laylastein/Database_project/Database_project/ParamsQueries.sql

@@ -33,8 +33,10 @@ postgres=# \i /Users/laylastein/Database_project/Database_project/Queries.sql
 UPDATE 199076
 Time: 2350.154 ms (00:02.350)
 postgres=# \i /Users/laylastein/Database_project/Database_project/Queries.sql
-DELETE 199076
-Time: 310.028 ms
+DELETE 5998
+Time: 62.743
+DELETE 0
+Time: 40.940 ms
 postgres=# \i /Users/laylastein/Database_project/Database_project/Queries.sql
 DELETE 21202
 Time: 146.227 ms

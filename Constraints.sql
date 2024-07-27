@@ -93,7 +93,6 @@ ALTER TABLE member_penalties
 ADD CONSTRAINT mem_pen_dates
 CHECK (issue_date <= due_date);
 
-
 -- Creating errors ***********************************************************
 UPDATE subscriptions
 SET cost_ = -1;

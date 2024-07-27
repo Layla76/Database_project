@@ -193,8 +193,9 @@ Backup and restore:<br />
   Response:       UPDATE 199076
 <br />
 
-7. Delete subscribed members who have had more than 5 penalties<br />
-  Response:        DELETE 199076
+7. Delete books and rooms that have an asset id that already exists in another asset table<br />
+  Response:        DELETE 5998
+                    DELETE 0 <br />
 <br />
 
 8. Delete procurements that cost more than 3,000,000<br />
