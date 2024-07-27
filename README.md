@@ -337,5 +337,9 @@ New queries using joins
 2. Time: 55.907 ms
 3. Time: 116.002 ms
 
+![image](https://github.com/user-attachments/assets/653acf15-00e0-4c7b-b38b-ae6213212afc)<br />
+<br />
+
+
 
 
