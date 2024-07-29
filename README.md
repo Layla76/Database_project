@@ -340,6 +340,8 @@ New queries using joins
 ![image](https://github.com/user-attachments/assets/653acf15-00e0-4c7b-b38b-ae6213212afc)<br />
 <br />
 
+[Views and select queries](Views.sql)<br />
 
+Only after I wrote the above views did I realize that views can only have updates/insertions/deletions if they're from a single table. So [here](UpdatableViews.sql) are four new views for the purpose of updating/inserting/deleting.<br />
 
 
