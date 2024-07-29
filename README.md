@@ -350,15 +350,18 @@ Only after I wrote the above views did I realize that views can only have update
 -----
 <br /><br />
 
-![image](https://github.com/user-attachments/assets/7d8f5274-7035-4898-ac0f-d856fd36946d)<br /><br />
-![image](https://github.com/user-attachments/assets/024d6a64-1c66-46e0-96e9-6a2a56ac5b0d)<br /><br />
-![image](https://github.com/user-attachments/assets/8c31d453-e3f5-4b45-8681-108073c9eef6)<br /><br />
-<br /><br /><br />
+Generating total prices for books, rooms, and buildings<br /><br />
+![image](https://github.com/user-attachments/assets/7d8f5274-7035-4898-ac0f-d856fd36946d)<br /><br /><br />
+![image](https://github.com/user-attachments/assets/024d6a64-1c66-46e0-96e9-6a2a56ac5b0d)<br /><br /><br />
+![image](https://github.com/user-attachments/assets/8c31d453-e3f5-4b45-8681-108073c9eef6)<br /><br /><br />
+The reason that the totals for books and rooms seems to be zero in the graph is that proportionally, the total spend on buildings is much greater (data generation was random, but given contraints so that books prices < room prices < building prices). The first line on the y axis is already 20,000,000,000, which is 2 and 4 order of magnitudes greater than the rooms and books total, respectively.
+<br /><br /><br /><br />
 
-![image](https://github.com/user-attachments/assets/fc58f7d4-1cc8-4b99-8d9e-ae923d1f229c)<br /><br />
-![image](https://github.com/user-attachments/assets/1fc35eaf-ce8f-445a-989d-c519f49feaac)<br /><br />
-![image](https://github.com/user-attachments/assets/2bd94269-4c98-406e-94b3-d004e10ac343)<br /><br />
-<br /><br />
+Generating total subscriptions for regular, student, soldier, and senior<br /><br />
+![image](https://github.com/user-attachments/assets/fc58f7d4-1cc8-4b99-8d9e-ae923d1f229c)<br /><br /><br />
+![image](https://github.com/user-attachments/assets/1fc35eaf-ce8f-445a-989d-c519f49feaac)<br /><br /><br />
+![image](https://github.com/user-attachments/assets/2bd94269-4c98-406e-94b3-d004e10ac343)<br /><br /><br />
+<br /><br /><br />
 
 
 
