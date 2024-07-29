@@ -363,6 +363,9 @@ Generating total subscriptions for regular, student, soldier, and senior<br /><b
 ![image](https://github.com/user-attachments/assets/2bd94269-4c98-406e-94b3-d004e10ac343)<br /><br /><br />
 <br /><br /><br />
 
+-----<br /><br />
+
+[Functions](Functions.sql)<br />
 
 
 
