@@ -343,5 +343,3 @@ New queries using joins
 [Views and select queries](Views.sql)<br />
 
 Only after I wrote the above views did I realize that views can only have updates/insertions/deletions if they're from a single table. So [here](UpdatableViews.sql) are four new views for the purpose of updating/inserting/deleting.<br />
-
-
