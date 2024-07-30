@@ -1,24 +1,35 @@
 -- 1. How much money has the library spent on books?
-SELECT SUM(books.price) as total_book_cost
-FROM assets
-INNER JOIN procurements ON assets.id_ = procurements.asset_id
-INNER JOIN suppliers ON suppliers.id_ = procurements.supplier_id
-INNER JOIN books ON assets.id_ = books.asset_id
-WHERE assets.type_ = 'book' and procurements.status_ = 1;
+SELECT * FROM get_sum_book_prices();
+
+-- get_sum_book_prices 
+-- ---------------------
+--            558314.49
+-- (1 row)
+
+-- Time: 75.146 ms
+
   
 -- 2. What is the most expensive procurement?
-SELECT MAX(buildings.price)
-FROM suppliers
-INNER JOIN procurements ON suppliers.id_ = procurements.supplier_id
-INNER JOIN assets ON assets.id_ = procurements.asset_id
-INNER JOIN buildings ON buildings.asset_id = assets.id_
-WHERE assets.type_ = 'building' and procurements.status_ = 1;
+SELECT * FROM get_most_expensive_procurement();
+
+-- get_most_expensive_procurement 
+-- --------------------------------
+--                         4999982
+-- (1 row)
+
+-- Time: 112.358 ms
+
 
 -- 3. What is the average insurance plan length in use?
-SELECT AVG(end_date - start_date_) AS avg_length_in_days
-FROM insured
-INNER JOIN insurance ON insurance.id_ = insured.insurance_id
-INNER JOIN assets ON assets.id_ = insured.asset_id;
+SELECT * FROM get_avg_insurance_length();
+
+-- get_avg_insurance_length 
+-- --------------------------
+--      451.9931558325003101
+-- (1 row)
+
+-- Time: 104.231 ms
+
 
 -- 4. What is the library's balance?
  SELECT
@@ -26,7 +37,7 @@ INNER JOIN assets ON assets.id_ = insured.asset_id;
 FROM grants
 INNER JOIN cash_flow ON cash_flow.id_ = grants.cash_flow_id
 INNER JOIN tables ON cash_flow.table_id = tables.id_
-WHERE grants.status_ = 1)
+WHERE grants.status_ = 1 and tables.name_ = 'grants')
 
 +
 
@@ -57,33 +68,15 @@ WHERE member_penalties.status_ = 1 and tables.name_ = 'member_penalties')
 
 +
 
-(SELECT SUM(books.price * tables.flow_direction)
-FROM procurements
-INNER JOIN cash_flow ON cash_flow.id_ = procurements.cash_flow_id
-INNER JOIN tables ON cash_flow.table_id = tables.id_
-INNER JOIN assets ON assets.id_ = procurements.asset_id
-INNER JOIN books ON books.asset_id = assets.id_
-WHERE procurements.status_ = 1 and assets.type_ = 'book' and tables.name_ = 'procurements')
+(SELECT * FROM get_total_price_for_asset_type('book'))
 
 +
 
-(SELECT SUM(rooms.price * tables.flow_direction)
-FROM procurements
-INNER JOIN cash_flow ON cash_flow.id_ = procurements.cash_flow_id
-INNER JOIN tables ON cash_flow.table_id = tables.id_
-INNER JOIN assets ON assets.id_ = procurements.asset_id
-INNER JOIN rooms ON rooms.asset_id = assets.id_
-WHERE procurements.status_ = 1 and assets.type_ = 'room' and tables.name_ = 'procurements')
+(SELECT * FROM get_total_price_for_asset_type('room'))
 
 +
 
-(SELECT SUM(buildings.price * tables.flow_direction)
-FROM procurements
-INNER JOIN cash_flow ON cash_flow.id_ = procurements.cash_flow_id
-INNER JOIN tables ON cash_flow.table_id = tables.id_
-INNER JOIN assets ON assets.id_ = procurements.asset_id
-INNER JOIN buildings ON buildings.asset_id = assets.id_
-WHERE procurements.status_ = 1 and assets.type_ = 'building' and tables.name_ = 'procurements')
+(SELECT * FROM get_total_price_for_asset_type('building'))
 
 + 
 
@@ -119,6 +112,14 @@ INNER JOIN insurance ON insurance.id_ = insured.insurance_id
 WHERE insured.status_ = 1 and assets.type_ = 'building' and tables.name_ = 'insured')
 
 AS balance;
+
+-- balance     
+-- -----------------
+--  -12215265213.34
+-- (1 row)
+
+-- Time: 2134.274 ms (00:02.134)
+
 
 -- 5. Add 90 days to each insurance plan
 UPDATE insured
