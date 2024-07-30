@@ -382,6 +382,7 @@ CREATE SEQUENCE asset_id_seq;<br />
 CREATE SEQUENCE cf_id_seq;<br />
 
 Altering the tables to have the default primary key go by the sequence<br />
+
 ALTER TABLE assets<br />
 ALTER COLUMN id_ SET DEFAULT nextval('asset_id_seq');<br /><br />
 
