@@ -363,12 +363,14 @@ Generating total subscriptions for regular, student, soldier, and senior<br /><b
 ![image](https://github.com/user-attachments/assets/2bd94269-4c98-406e-94b3-d004e10ac343)<br /><br /><br />
 <br /><br /><br />
 
------<br /><br />
+-----
 
 [Functions](Functions.sql)<br />
 
 Function #4 combines three select queries for the prices of books, rooms, and buildings. The parameter is the asset type (book/room/building) and instead of one of the inner joins being either the book, room, or building table, it unions the tables so that the asset id will match a row in the new table.
 <br /><br />
+
+-----
 
 [Triggers](Triggers.sql)<br /><br />
 
