@@ -374,7 +374,7 @@ Function #4 combines three select queries for the prices of books, rooms, and bu
 
 The two triggers make sure that [1] asset ids across books, rooms, and buildings are all unique and [2] cash flow ids across grants + all relation tables are unique. The trigger calls the function with a parameter specifying the relevant table, and the function inserts a new asset/cash flow and inserts the same id* to the new row that called the trigger. The id is retrieved by selecting the first id that appears in a table of descending ids. The passed argument can only be referenced through the variable TG_ARGV[0].<br /><br />
 
-* The id is determined by a sequence that increases by 1 for each insertion. <br />
+The id is determined by a sequence that increases by 1 for each insertion.** <br />
 
 CREATE SEQUENCE asset_id_seq;<br />
 CREATE SEQUENCE cf_id_seq;<br />
