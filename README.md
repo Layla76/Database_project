@@ -370,6 +370,34 @@ Generating total subscriptions for regular, student, soldier, and senior<br /><b
 Function #4 combines three select queries for the prices of books, rooms, and buildings. The parameter is the asset type (book/room/building) and instead of one of the inner joins being either the book, room, or building table, it unions the tables so that the asset id will match a row in the new table.
 <br /><br />
 
-[Triggers](Triggers.sql)<br />
+[Triggers](Triggers.sql)<br /><br />
+
+The two triggers make sure that [1] asset ids across books, rooms, and buildings are all unique and [2] cash flow ids across grants + all relation tables are unique. The trigger calls the function with a parameter specifying the relevant table, and the function inserts a new asset/cash flow and inserts the same id* to the new row that called the trigger. The id is retrieved by selecting the first id that appears in a table of descending ids. The passed argument can only be referenced through the variable TG_ARGV[0].<br /><br />
+
+* The id is determined by a sequence that increases by 1 for each insertion. 
+CREATE SEQUENCE asset_id_seq;
+CREATE SEQUENCE cf_id_seq;
+
+Altering the tables to have the default primary key go by the sequence
+ALTER TABLE assets
+ALTER COLUMN id_ SET DEFAULT nextval('asset_id_seq');
+
+ALTER TABLE cash_flow
+ALTER COLUMN id_ SET DEFAULT nextval('cf_id_seq');
+
+I found the max ids for each table and set the sequences to the max + 1
+SELECT setval('asset_id_seq', 999990001, false);
+SELECT setval('cf_id_seq', 999999001, false);
+
+Inserting into books:
+INSERT INTO books (price) values (10.00);
+INSERT 0 1
+Time: 16.337 ms
+
+
+Inserting into grants:
+INSERT INTO grants (donor_id, amount, date_, status_) values (123000000, 40826.00, '2024-08-07', 0);
+INSERT 0 1
+Time: 17.395 ms
 
 
