@@ -374,30 +374,41 @@ Function #4 combines three select queries for the prices of books, rooms, and bu
 
 The two triggers make sure that [1] asset ids across books, rooms, and buildings are all unique and [2] cash flow ids across grants + all relation tables are unique. The trigger calls the function with a parameter specifying the relevant table, and the function inserts a new asset/cash flow and inserts the same id* to the new row that called the trigger. The id is retrieved by selecting the first id that appears in a table of descending ids. The passed argument can only be referenced through the variable TG_ARGV[0].<br /><br />
 
-* The id is determined by a sequence that increases by 1 for each insertion. 
-CREATE SEQUENCE asset_id_seq;
-CREATE SEQUENCE cf_id_seq;
+* The id is determined by a sequence that increases by 1 for each insertion. <br />
+CREATE SEQUENCE asset_id_seq;<br />
+CREATE SEQUENCE cf_id_seq;<br />
 
-Altering the tables to have the default primary key go by the sequence
-ALTER TABLE assets
-ALTER COLUMN id_ SET DEFAULT nextval('asset_id_seq');
+Altering the tables to have the default primary key go by the sequence<br />
+ALTER TABLE assets<br />
+ALTER COLUMN id_ SET DEFAULT nextval('asset_id_seq');<br /><br />
 
-ALTER TABLE cash_flow
-ALTER COLUMN id_ SET DEFAULT nextval('cf_id_seq');
+ALTER TABLE cash_flow<br />
+ALTER COLUMN id_ SET DEFAULT nextval('cf_id_seq');<br /><br />
 
-I found the max ids for each table and set the sequences to the max + 1
-SELECT setval('asset_id_seq', 999990001, false);
-SELECT setval('cf_id_seq', 999999001, false);
+I found the max ids for each table and set the sequences to the max + 1<br />
+SELECT setval('asset_id_seq', 999990001, false);<br />
+SELECT setval('cf_id_seq', 999999001, false);<br /><br />
 
-Inserting into books:
-INSERT INTO books (price) values (10.00);
-INSERT 0 1
-Time: 16.337 ms
+Inserting into books:<br />
+INSERT INTO books (price) values (10.00);<br />
+INSERT 0 1<br />
+Time: 16.337 ms<br />
 
+Books table:<br />
+![image](https://github.com/user-attachments/assets/03d14bc5-a766-4a59-8b53-62e72614df29)<br />
+<br />
+Assets table:<br />
+![image](https://github.com/user-attachments/assets/466a2f32-4ff4-4650-a61d-adb1cf09adab)<br />
+<br /><br />
 
-Inserting into grants:
-INSERT INTO grants (donor_id, amount, date_, status_) values (123000000, 40826.00, '2024-08-07', 0);
-INSERT 0 1
-Time: 17.395 ms
-
+Inserting into grants:<br />
+INSERT INTO grants (donor_id, amount, date_, status_) values (123000000, 40826.00, '2024-08-07', 0);<br />
+INSERT 0 1<br />
+Time: 17.395 ms<br />
+<br />
+Grants table:<br />
+![image](https://github.com/user-attachments/assets/701a39bd-b0d2-4dc5-9f4c-e291beab8d85)<br />
+<br />
+Cash flow table:<br />
+![image](https://github.com/user-attachments/assets/d4eba391-aabf-410f-a76c-17821633106e)<br />
 
