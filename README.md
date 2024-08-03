@@ -423,6 +423,9 @@ Cash flow table:<br />
 
 Stage 4<br /><br />
 
+![image](https://github.com/user-attachments/assets/3cd2c790-68f5-4041-b782-9f8352624dc8)
+<br /><br />
+
 Each employee is associated with a type of work (librarian, perserver, manager, secretary, security) and a job ID that determines the exact specialization of the job and the associated wage. 
 <br />
 To accomodate for the new integration, the employee table needs to be updated to include the following attributes: name, department, birthdate, start date, and job ID. The foreign key job ID will be matched to the corresponding job ID in the wages table. The five types of employees will each have their own table that have their respective attributes as well as an employee ID foreign key. 
