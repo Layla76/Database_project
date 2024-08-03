@@ -149,7 +149,7 @@ Data generation
 - Made a [python script](generate.py) to generate all insert statements.
 - 200,000 rows per relation table
 
-The json file: [json](ERD.json)<br />
+The json file: [json](billing.json)<br />
 
 Data dump script: [dump](dump_data.py)<br />
 
@@ -426,11 +426,17 @@ Stage 4<br /><br />
 ![image](https://github.com/user-attachments/assets/3cd2c790-68f5-4041-b782-9f8352624dc8)
 <br /><br />
 
-Each employee is associated with a type of work (librarian, perserver, manager, secretary, security) and a job ID that determines the exact specialization of the job and the associated wage. 
-<br />
-To accomodate for the new integration, the employee table needs to be updated to include the following attributes: name, department, birthdate, start date, and job ID. The foreign key job ID will be matched to the corresponding job ID in the wages table. The five types of employees will each have their own table that have their respective attributes as well as an employee ID foreign key. 
+Each employee is associated with a type of work (librarian, perserver, manager, secretary, security) and a job ID that determines the exact specialization of the job and the associated wage.<br /><br />
 
-The new attributes for the employee table first need to be added without contraints, and then after being populated, the constraints can be added.
+To accomodate for the new integration, the employee table needs to be updated to include the following attributes: name, department, birthdate, start date, and job ID. The foreign key job ID will be matched to the corresponding job ID in the wages table. The five types of employees will each have their own table that have their respective attributes as well as an employee ID foreign key.<br /><br />
 
-[New additions (alter employee table, creating other tables)](Integration.sql)<br />
+The new attributes for the employee table first need to be added without contraints, and then after being populated, the constraints can be added.<br /><br />
+
+[New additions (alter employee table, creating other tables)](Integration.sql)<br /><br />
+
+[Updating employee table to have new randomly generated values](Update.sql)<br /><br />
+
+Also randomly generated the rest of the new tables and some employee attributes with a python script.<br /><br />
+
+The five different types of employees each have their own range of employee IDs, having around 2,000 each.<br /><br />
 

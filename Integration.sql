@@ -6,13 +6,17 @@ CREATE TYPE genre AS ENUM ('children', 'mystery', 'fantasy', 'romance', 'science
 CREATE TYPE specialty AS ENUM ('children', 'mystery', 'fantasy', 'romance', 'science fiction', 'thriller', 'historical fiction', 'biography');
 CREATE TYPE post AS ENUM ('Front door', 'Back door', 'Side door', 'Main floor', 'Archives');
 
-
 -- tables
 ALTER TABLE employees
-ADD name_          VARCHAR, -- NOT NULL !!!!!!!!!!!!!
-ADD  start_date_   DATE,
-ADD  birthdate      DATE,
-ADD  department     dept;
+ADD name_          VARCHAR NOT NULL,
+ADD  start_date_   DATE NOT NULL,
+ADD  birthdate      DATE NOT NULL,
+ADD  department     dept NOT NULL
+ADD job_id          INTEGER NOT NULL;
+
+ALTER TABLE employees
+ADD CONSTRAINT fk_job
+FOREIGN KEY (job_id) REFERENCES jobs(id_) ON DELETE CASCADE;
 
 
 CREATE TABLE if NOT EXISTS shift (
