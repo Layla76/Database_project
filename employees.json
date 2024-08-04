@@ -1,0 +1,286 @@
+{
+  "sequences": [
+    {
+      "name": "seq_Employee_EmpID",
+      "increment": 1,
+      "start": 1
+    }
+  ],
+  "types": [
+    {
+      "name": "dept",
+      "enum": ["Library", "Desk", "Archives", "Management", "Security"]
+    },
+    {
+      "name": "team",
+      "enum": ["Library", "Desk", "Archives", "Security"]
+    },
+    {
+      "name": "days",
+      "enum": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    },
+    {
+      "name": "genre",
+      "enum": ["children", "mystery", "fantasy", "romance", "science fiction", "thriller", "historical fiction", "biography", "self-help", "cookbook"]
+    },
+    {
+      "name": "specialty",
+      "enum": ["children", "mystery", "fantasy", "romance", "science fiction", "thriller", "historical fiction", "biography"]
+    },
+    {
+      "name": "post",
+      "enum": ["Front door", "Back door", "Side door", "Main floor", "Archives"]
+    }
+  ],
+  "tables": [
+    {
+      "name": "Employee",
+      "columns": [
+        {
+          "name": "EmpID",
+          "type": "INTEGER",
+          "default": "NEXTVAL('seq_Employee_EmpID')",
+          "constraints": ["NOT NULL", "PRIMARY KEY"]
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "start_date",
+          "type": "DATE",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "birthdate",
+          "type": "DATE",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "department",
+          "type": "dept",
+          "constraints": ["NOT NULL"]
+        }
+      ]
+    },
+    {
+      "name": "Shift",
+      "columns": [
+        {
+          "name": "day_of_week",
+          "type": "days",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "timeslot",
+          "type": "INTERVAL",
+          "constraints": ["NOT NULL"]
+        }
+      ],
+      "constraints": [
+        {
+          "type": "PRIMARY KEY",
+          "columns": ["day_of_week", "timeslot"]
+        }
+      ]
+    },
+    {
+      "name": "Librarian",
+      "columns": [
+        {
+          "name": "EmpID",
+          "type": "INTEGER",
+          "constraints": ["NOT NULL", "PRIMARY KEY"]
+        },
+        {
+          "name": "specialty",
+          "type": "genre",
+          "constraints": ["NOT NULL"]
+        }
+      ],
+      "constraints": [
+        {
+          "type": "FOREIGN KEY",
+          "columns": ["EmpID"],
+          "references": {
+            "table": "Employee",
+            "columns": ["EmpID"]
+          },
+          "options": {
+            "MATCH": "FULL",
+            "ON DELETE": "NO ACTION",
+            "ON UPDATE": "CASCADE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Preserver",
+      "columns": [
+        {
+          "name": "EmpID",
+          "type": "INTEGER",
+          "constraints": ["NOT NULL", "PRIMARY KEY"]
+        },
+        {
+          "name": "specialty",
+          "type": "specialty",
+          "constraints": ["NOT NULL"]
+        }
+      ],
+      "constraints": [
+        {
+          "type": "FOREIGN KEY",
+          "columns": ["EmpID"],
+          "references": {
+            "table": "Employee",
+            "columns": ["EmpID"]
+          },
+          "options": {
+            "MATCH": "FULL",
+            "ON DELETE": "NO ACTION",
+            "ON UPDATE": "CASCADE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Secratary",
+      "columns": [
+        {
+          "name": "EmpID",
+          "type": "INTEGER",
+          "constraints": ["NOT NULL", "PRIMARY KEY"]
+        }
+      ],
+      "constraints": [
+        {
+          "type": "FOREIGN KEY",
+          "columns": ["EmpID"],
+          "references": {
+            "table": "Employee",
+            "columns": ["EmpID"]
+          },
+          "options": {
+            "MATCH": "FULL",
+            "ON DELETE": "NO ACTION",
+            "ON UPDATE": "CASCADE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Manager",
+      "columns": [
+        {
+          "name": "EmpID",
+          "type": "INTEGER",
+          "constraints": ["NOT NULL", "PRIMARY KEY"]
+        },
+        {
+          "name": "team",
+          "type": "team",
+          "constraints": ["NOT NULL"]
+        }
+      ],
+      "constraints": [
+        {
+          "type": "FOREIGN KEY",
+          "columns": ["EmpID"],
+          "references": {
+            "table": "Employee",
+            "columns": ["EmpID"]
+          },
+          "options": {
+            "MATCH": "FULL",
+            "ON DELETE": "NO ACTION",
+            "ON UPDATE": "CASCADE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Security",
+      "columns": [
+        {
+          "name": "EmpID",
+          "type": "INTEGER",
+          "constraints": ["NOT NULL", "PRIMARY KEY"]
+        },
+        {
+          "name": "location",
+          "type": "post",
+          "constraints": ["NOT NULL"]
+        }
+      ],
+      "constraints": [
+        {
+          "type": "FOREIGN KEY",
+          "columns": ["EmpID"],
+          "references": {
+            "table": "Employee",
+            "columns": ["EmpID"]
+          },
+          "options": {
+            "MATCH": "FULL",
+            "ON DELETE": "NO ACTION",
+            "ON UPDATE": "CASCADE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Works",
+      "columns": [
+        {
+          "name": "EmpID",
+          "type": "INTEGER",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "day_of_week",
+          "type": "days",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "timeslot",
+          "type": "INTERVAL",
+          "constraints": ["NOT NULL"]
+        }
+      ],
+      "constraints": [
+        {
+          "type": "PRIMARY KEY",
+          "columns": ["EmpID", "day_of_week", "timeslot"]
+        },
+        {
+          "type": "FOREIGN KEY",
+          "columns": ["EmpID"],
+          "references": {
+            "table": "Employee",
+            "columns": ["EmpID"]
+          },
+          "options": {
+            "MATCH": "FULL",
+            "ON DELETE": "NO ACTION",
+            "ON UPDATE": "CASCADE"
+          }
+        },
+        {
+          "type": "FOREIGN KEY",
+          "columns": ["day_of_week", "timeslot"],
+          "references": {
+            "table": "Shift",
+            "columns": ["day_of_week", "timeslot"]
+          },
+          "options": {
+            "MATCH": "FULL",
+            "ON DELETE": "CASCADE",
+            "ON UPDATE": "CASCADE"
+          }
+        }
+      ]
+    }
+  ]
+}

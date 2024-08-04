@@ -1,0 +1,501 @@
+{
+  "sequences": [
+    {
+      "name": "seq_Employee_EmpID",
+      "increment": 1,
+      "start": 1
+    }
+  ],
+  "types": [
+    {
+      "name": "dept",
+      "enum": ["Library", "Desk", "Archives", "Management", "Security"]
+    },
+    {
+      "name": "team",
+      "enum": ["Library", "Desk", "Archives", "Security"]
+    },
+    {
+      "name": "days",
+      "enum": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    },
+    {
+      "name": "genre",
+      "enum": ["children", "mystery", "fantasy", "romance", "science fiction", "thriller", "historical fiction", "biography", "self-help", "cookbook"]
+    },
+    {
+      "name": "specialty",
+      "enum": ["children", "mystery", "fantasy", "romance", "science fiction", "thriller", "historical fiction", "biography"]
+    },
+    {
+      "name": "post",
+      "enum": ["Front door", "Back door", "Side door", "Main floor", "Archives"]
+    }
+  ],
+  "entities": 
+  [
+    {
+      "people": {
+        "attributes": {
+          "id_": "numeric(9, 0)"
+        },
+        "primaryKey": "id_"
+      },
+      "providers": {
+        "attributes": {
+          "id_": "numeric(9, 0)"
+        },
+        "primaryKey": "id_"
+      },
+      "jobs": {
+        "attributes": {
+          "id_": "numeric(9, 0)"
+        },
+        "primaryKey": "id_"
+      },
+      "donors": {
+        "attributes": {
+          "id_": "numeric(9, 0)"
+        },
+        "primaryKey": "id_"
+      },
+      "employees": {
+        "attributes": {
+          "id_": "numeric(9, 0)",
+          "name_": "varchar",
+          "start_date_": "date",
+          "birthdate": "date",
+          "department": "dept",
+          "job_id": "integer"
+        },
+        "primaryKey": "id_",
+        "foreignKeys": {
+          "job_id": {
+            "referenceTable": "jobs",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "librarian": {
+        "attributes": {
+          "employee_id": "integer",
+          "section": "genre"
+        },
+        "primaryKey": "employee_id",
+        "foreignKeys": {
+          "employee_id": {
+            "referenceTable": "employees",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "perserver": {
+        "attributes": {
+          "employee_id": "integer",
+          "specialty": "specialty"
+        },
+        "primaryKey": "employee_id",
+        "foreignKeys": {
+          "employee_id": {
+            "referenceTable": "employees",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "secretary": {
+        "attributes": {
+          "employee_id": "integer"
+        },
+        "primaryKey": "employee_id",
+        "foreignKeys": {
+          "employee_id": {
+            "referenceTable": "employees",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "manager": {
+        "attributes": {
+          "employee_id": "integer",
+          "team": "team"
+        },
+        "primaryKey": "employee_id",
+        "foreignKeys": {
+          "employee_id": {
+            "referenceTable": "employees",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "security_": {
+        "attributes": {
+          "employee_id": "integer",
+          "location": "post"
+        },
+        "primaryKey": "employee_id",
+        "foreignKeys": {
+          "employee_id": {
+            "referenceTable": "employees",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "shift": {
+        "attributes": {
+          "day_of_week": "days",
+          "timeslot": "interval"
+        },
+        "primaryKey": ["day_of_week", "timeslot"],
+        "foreignKeys": {
+          "employee_id": {
+            "referenceTable": "employees",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "members": {
+        "attributes": {
+          "id_": "numeric(9, 0)"
+        },
+        "primaryKey": "id_"
+      },
+      "assets": {
+        "attributes": {
+          "id_": "numeric(9, 0)",
+          "type_": "varchar(50)"
+        },
+        "primaryKey": "id_"
+      },
+      "books": {
+        "attributes": {
+          "asset_id": "numeric(9, 0)",
+          "price": "numeric(4,2)"
+        },
+        "primaryKey": "asset_id",
+        "foreignKeys": {
+          "asset_id": {
+            "referenceTable": "assets",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "rooms": {
+        "attributes": {
+          "asset_id": "numeric(9, 0)",
+          "price": "numeric(4,2)"
+        },
+        "primaryKey": "asset_id",
+        "foreignKeys": {
+          "asset_id": {
+            "referenceTable": "assets",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "buildings": {
+        "attributes": {
+          "asset_id": "numeric(9, 0)",
+          "price": "numeric(4,2)"
+        },
+        "primaryKey": "asset_id",
+        "foreignKeys": {
+          "asset_id": {
+            "referenceTable": "assets",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "tables": {
+        "attributes": {
+          "id_": "numeric(9, 0)",
+          "name_": "varchar(50)",
+          "flow_direction": "numeric(1,0)"
+        },
+        "primaryKey": "id_"
+      },
+      "cash_flow": {
+        "attributes": {
+          "id_": "numeric(9, 0)",
+          "table_id": "numeric(9,0)"
+        },
+        "primaryKey": "id_",
+        "foreignKeys": {
+          "table_id": {
+            "referenceTable": "tables",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "grants": {
+        "attributes": {
+          "cash_flow_id": "number(9, 0)",
+          "donor_id": "numeric(9, 0)",
+          "amount": "numeric(12, 2)",
+          "date_": "date",
+          "status_": "numeric(1,0)"
+        },
+        "primaryKey": "cash_flow_id",
+        "foreignKeys": {
+          "cash_flow_id": {
+            "referenceTable": "cash_flow",
+            "referenceField": "id_"
+          },
+          "donor_id": {
+            "referenceTable": "donors",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "wages": {
+        "attributes": {
+          "id_": "number(9, 0)",
+          "job_id": "numeric(9, 0)",
+          "wage": "numeric(12, 2)"
+        },
+        "primaryKey": "id_",
+        "foreignKeys": {
+          "job_id": {
+            "referenceTable": "jobs",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "suppliers": {
+        "attributes": {
+          "id_": "number(9, 0)"
+        },
+        "primaryKey": "id_"
+      },
+      "insurance": {
+        "attributes": {
+          "id_": "numeric(9, 0)",
+          "provider_id": "numeric(9, 0)",
+          "cost_": "numeric(12, 2)"
+        },
+        "primaryKey": "id_",
+        "foreignKeys": {
+          "provider_id": {
+            "referenceTable": "providers",
+            "referenceField": "id_"
+          }
+        }
+      },
+      "subscriptions": {
+        "attributes": {
+          "id_": "numeric(9, 0)",
+          "type_": "varchar(50)",
+          "cost_": "numeric(6, 2)"
+        },
+        "primaryKey": "id_"
+      },
+      "penalties": {
+        "attributes": {
+          "id_": "numeric(9, 0)",
+          "type_": "varchar(50)",
+          "fee": "numeric(6, 2)"
+        },
+        "primaryKey": "id_"
+      }
+    } 
+  ],
+  "relationships": 
+  [
+    {
+      "relationshipName": "payments",
+      "type": "many-to-many",
+      "from": {
+        "entity": "wages",
+        "key": "id_"
+      },
+      "to": {
+        "entity": "employees",
+        "key": "id_"
+      },
+      "attributes": {
+        "cash_flow_id": "numeric(9,0)",
+        "wage_id": "numeric(9,0)",
+        "employee_id": "numeric(9,0)",
+        "date_": "date",
+        "status_": "numeric(1,0)"
+      },
+      "primaryKey": "cash_flow_id",
+      "foreignKeys": {
+        "cash_flow_id": {
+          "referenceTable": "cash_flow",
+          "referenceField": "id_"
+        },
+        "wage_id": {
+          "referenceTable": "wages",
+          "referenceField": "id_"
+        },
+        "employee_id": {
+          "referenceTable": "employees",
+          "referenceField": "id_"
+        }
+      }
+    },
+    {
+      "relationshipName": "procurements",
+      "type": "many-to-many",
+      "from": {
+        "entity": "suppliers",
+        "key": "id_"
+      },
+      "to": {
+        "entity": "assets",
+        "key": "id_"
+      },
+      "attributes": {
+        "cash_flow_id": "numeric(9,0)",
+        "supplier_id": "numeric(9,0)",
+        "asset_id": "numeric(9,0)",
+        "date_": "date",
+        "status_": "numeric(1,0)"
+      },
+      "primaryKey": "cash_flow_id",
+      "foreignKeys": {
+        "cash_flow_id": {
+          "referenceTable": "cash_flow",
+          "referenceField": "id_"
+        },
+        "supplier_id": {
+          "referenceTable": "suppliers",
+          "referenceField": "id_"
+        },
+        "asset_id": {
+          "referenceTable": "assets",
+          "referenceField": "id_"
+        }
+      }
+    },
+    {
+      "relationshipName": "subscribed",
+      "type": "many-to-many",
+      "from": {
+        "entity": "subscriptions",
+        "key": "id_"
+      },
+      "to": {
+        "entity": "members",
+        "key": "id_"
+      },
+      "attributes": {
+        "cash_flow_id": "numeric(9,0)",
+        "subscription_id": "numeric(9,0)",
+        "member_id": "numeric(9,0)",
+        "start_date_": "date",
+        "end_date": "date",
+        "status_": "numeric(1,0)"
+      },
+      "primaryKey": "cash_flow_id",
+      "foreignKeys": {
+        "cash_flow_id": {
+          "referenceTable": "cash_flow",
+          "referenceField": "id_"
+        },
+        "subscription_id": {
+          "referenceTable": "subscriptions",
+          "referenceField": "id_"
+        },
+        "member_id": {
+          "referenceTable": "members",
+          "referenceField": "id_"
+        }
+      }
+    },
+    {
+      "relationshipName": "member_penalties",
+      "type": "many-to-many",
+      "from": {
+        "entity": "members",
+        "key": "id_"
+      },
+      "to": {
+        "entity": "penalties",
+        "key": "id_"
+      },
+      "attributes": {
+        "cash_flow_id": "numeric(9,0)",
+        "penalty_id": "numeric(9,0)",
+        "member_id": "numeric(9,0)",
+        "issue_date": "date",
+        "due_date": "date",
+        "status_": "numeric(1,0)"
+      },
+      "primaryKey": "cash_flow_id",
+      "foreignKeys": {
+        "cash_flow_id": {
+          "referenceTable": "cash_flow",
+          "referenceField": "id_"
+        },
+        "penalty_id": {
+          "referenceTable": "penalties",
+          "referenceField": "id_"
+        },
+        "member_id": {
+          "referenceTable": "members",
+          "referenceField": "id_"
+        }
+      }
+    },
+    {
+      "relationshipName": "insured",
+      "type": "many-to-many",
+      "from": {
+        "entity": "insurance",
+        "key": "id_"
+      },
+      "to": {
+        "entity": "assets",
+        "key": "id_"
+      },
+      "attributes": {
+        "cash_flow_id": "numeric(9,0)",
+        "insurance_id": "numeric(9,0)",
+        "asset_id": "numeric(9,0)",
+        "start_date_": "date",
+        "end_date": "date",
+        "status_": "numeric(1,0)"
+      },
+      "primaryKey": "cash_flow_id",
+      "foreignKeys": {
+        "cash_flow_id": {
+          "referenceTable": "cash_flow",
+          "referenceField": "id_"
+        },
+        "insurance_id": {
+          "referenceTable": "insurance",
+          "referenceField": "id_"
+        },
+        "asset_id": {
+          "referenceTable": "assets",
+          "referenceField": "id_"
+        }
+      }
+    },
+    {
+      "relationshipName": "works",
+      "type": "many-to-many",
+      "from": {
+        "entity": "employees",
+        "key": "id_"
+      },
+      "to": {
+        "entity": "shift",
+        "key": ["day_of_week", "timeslot"]
+      },
+      "attributes": {
+        "employee_id": "integer",
+        "day_of_week": "days",
+        "timeslot": "interval"
+      },
+      "primaryKey": ["employee_id", "day_of_week", "timeslot"],
+      "foreignKeys": {
+        "employee_id": {
+          "referenceTable": "employees",
+          "referenceField": "id_"
+        }
+      }
+    }
+  ]
+}

@@ -430,12 +430,18 @@ Other group's ERD: <br />
 ![image](https://github.com/user-attachments/assets/7325126b-8140-4ed5-9519-4614e7b88642)
 
 Merged ERD:<br />
-![image](https://github.com/user-attachments/assets/3cd2c790-68f5-4041-b782-9f8352624dc8)
+
 <br /><br />
 
-Each employee is associated with a type of work (librarian, perserver, manager, secretary, security) and a job ID that determines the exact specialization of the job and the associated wage.<br /><br />
+[Original json](billing.json)<br />
+[Other group's json](employees.json)<br />
+[Merged json](combined.json)<br />
 
-To accomodate for the new integration, the employee table needs to be updated to include the following attributes: name, department, birthdate, start date, and job ID. The foreign key job ID will be matched to the corresponding job ID in the wages table. The five types of employees will each have their own table that have their respective attributes as well as an employee ID foreign key.<br /><br />
+The wages table used to have job_id as a foreign key, but it will be replaced by employee_id from the employees table.<br /><br />
+
+The jobs table isn't needed.<br /><br />
+
+The employee table needs to be updated to include the following attributes: name, department, birthdate, and start date. The primary key of the employee table (employee.id_) will be matched to the corresponding employee ID in the wages table. The five types of employees will each have their own table that have their respective attributes as well as an employee ID foreign key. They will each have their own range of employee IDs, having around 2,000 each.<br /><br />
 
 The new attributes for the employee table first need to be added without contraints, and then after being populated, the constraints can be added.<br /><br />
 
@@ -445,5 +451,5 @@ The new attributes for the employee table first need to be added without contrai
 
 Also randomly generated the rest of the new tables and some employee attributes with a python script.<br /><br />
 
-The five different types of employees each have their own range of employee IDs, having around 2,000 each.<br /><br />
+
 

@@ -7,16 +7,23 @@ CREATE TYPE specialty AS ENUM ('children', 'mystery', 'fantasy', 'romance', 'sci
 CREATE TYPE post AS ENUM ('Front door', 'Back door', 'Side door', 'Main floor', 'Archives');
 
 -- tables
-ALTER TABLE employees
-ADD name_          VARCHAR NOT NULL,
-ADD  start_date_   DATE NOT NULL,
-ADD  birthdate      DATE NOT NULL,
-ADD  department     dept NOT NULL
-ADD job_id          INTEGER NOT NULL;
+ALTER TABLE wages
+DROP COLUMN job_id,
+ADD employee_id INTEGER;
+
+
+ALTER TABLE wages
+ALTER COLUMN employee_id SET NOT NULL;
+
+
+DROP TABLE jobs;
+
 
 ALTER TABLE employees
-ADD CONSTRAINT fk_job
-FOREIGN KEY (job_id) REFERENCES jobs(id_) ON DELETE CASCADE;
+ADD  name_          VARCHAR NOT NULL,
+ADD  start_date_    DATE NOT NULL,
+ADD  birthdate      DATE NOT NULL,
+ADD  department     dept NOT NULL;
 
 
 CREATE TABLE if NOT EXISTS shift (
