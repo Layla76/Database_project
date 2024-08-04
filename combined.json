@@ -47,12 +47,6 @@
         },
         "primaryKey": "id_"
       },
-      "jobs": {
-        "attributes": {
-          "id_": "numeric(9, 0)"
-        },
-        "primaryKey": "id_"
-      },
       "donors": {
         "attributes": {
           "id_": "numeric(9, 0)"
@@ -65,16 +59,9 @@
           "name_": "varchar",
           "start_date_": "date",
           "birthdate": "date",
-          "department": "dept",
-          "job_id": "integer"
+          "department": "dept"
         },
-        "primaryKey": "id_",
-        "foreignKeys": {
-          "job_id": {
-            "referenceTable": "jobs",
-            "referenceField": "id_"
-          }
-        }
+        "primaryKey": "id_"
       },
       "librarian": {
         "attributes": {
@@ -249,13 +236,13 @@
       "wages": {
         "attributes": {
           "id_": "number(9, 0)",
-          "job_id": "numeric(9, 0)",
+          "employee_id": "numeric(9, 0)",
           "wage": "numeric(12, 2)"
         },
         "primaryKey": "id_",
         "foreignKeys": {
-          "job_id": {
-            "referenceTable": "jobs",
+          "employee_id": {
+            "referenceTable": "employees",
             "referenceField": "id_"
           }
         }

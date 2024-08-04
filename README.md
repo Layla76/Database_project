@@ -443,13 +443,11 @@ The jobs table isn't needed.<br /><br />
 
 The employee table needs to be updated to include the following attributes: name, department, birthdate, and start date. The primary key of the employee table (employee.id_) will be matched to the corresponding employee ID in the wages table. The five types of employees will each have their own table that have their respective attributes as well as an employee ID foreign key. They will each have their own range of employee IDs, having around 2,000 each.<br /><br />
 
-The new attributes for the employee table first need to be added without contraints, and then after being populated, the constraints can be added.<br /><br />
+The new attributes for the employees and wages tables first need to be added without contraints, and then after being populated, the constraints can be added.<br /><br />
 
-[New additions (alter employee table, creating other tables)](Integration.sql)<br /><br />
+-----
 
-[Updating employee table to have new randomly generated values](Update.sql)<br /><br />
 
-Also randomly generated the rest of the new tables and some employee attributes with a python script.<br /><br />
-
+[New additions (alter employee + wage tables, creating other tables)](Integration.sql)<br /><br />
 
 
