@@ -430,7 +430,7 @@ Other group's ERD: <br />
 ![image](https://github.com/user-attachments/assets/7325126b-8140-4ed5-9519-4614e7b88642)
 
 Merged ERD:<br />
-
+![image](https://github.com/user-attachments/assets/b1a94f31-4e8d-4ed4-a7ce-a5e17940c3b4)
 <br /><br />
 
 [Original json](billing.json)<br />
