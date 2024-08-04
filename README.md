@@ -423,6 +423,10 @@ Cash flow table:<br />
 
 Stage 4<br /><br />
 
+
+
+
+
 Original ERD: <br />
 ![image](https://github.com/user-attachments/assets/baa9067a-0b49-4853-a668-74ceeb04e21c)
 
