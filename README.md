@@ -453,6 +453,8 @@ The new attributes for the employees and wages tables first need to be added wit
 
 ![image](https://github.com/user-attachments/assets/b1d4146e-933c-4954-b8d8-2188a4064448)
 <br /><br />
+
 [New additions (alter employee + wage tables, creating other tables)](Integration.sql)<br /><br />
+
 
 

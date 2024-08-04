@@ -1,8 +1,4 @@
 DROP SCHEMA public CASCADE;
 CREATE SCHEMA public;
 
-<<<<<<< HEAD
 pg_restore --no-owner --no-privileges --format=c --dbname=postgres://localhost/postgres backupPSQL.sql
-=======
-pg_restore --no-owner --no-privileges --format=c --dbname=postgres://localhost/postgres backupPSQL.sql
->>>>>>> de0506d0ca30248c01732cd8da0da15e905cde11
