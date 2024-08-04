@@ -423,9 +423,10 @@ Cash flow table:<br />
 
 Stage 4<br /><br />
 
+[New views, select, insert/update/delete](NewViews.sql)<br /><br />
+[New queries](Queries2.sql)<br /><br />
 
-
-
+-----
 
 Original ERD: <br />
 ![image](https://github.com/user-attachments/assets/baa9067a-0b49-4853-a668-74ceeb04e21c)
@@ -455,6 +456,4 @@ The new attributes for the employees and wages tables first need to be added wit
 <br /><br />
 
 [New additions (alter employee + wage tables, creating other tables)](Integration.sql)<br /><br />
-
-
 
