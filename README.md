@@ -424,7 +424,12 @@ Cash flow table:<br />
 Stage 4<br /><br />
 
 [New views, select, insert/update/delete](NewViews.sql)<br /><br />
-[New queries](Queries2.sql)<br /><br />
+[Times and responses](NewLogs.log)<br /><br />
+
+Explanation of update from view #1: 
+The query finds employees with the birthday Feburary 29th. If a different part of the system can't handle leap years, yet, then the birthdays can be temporarily changed to January 1st of the year 1800 + the last two digits of the employee's true birth year (via EXTRACT(YEAR FROM birthdate) % 100). This way, there will be no overlapping birthdays.<br /><br />
+
+[New queries, responses, and times](Queries2.sql)<br /><br />
 
 -----
 

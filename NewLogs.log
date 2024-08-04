@@ -1,0 +1,70 @@
+postgres=# CREATE OR REPLACE VIEW employee_birthdays AS
+postgres-# SELECT 
+postgres-#   id_,
+postgres-#   birthdate
+postgres-# FROM employees
+postgres-# WITH CHECK OPTION;
+CREATE VIEW
+Time: 2.343 ms
+postgres=# SELECT *                                                             FROM employee_birthdays                                                         WHERE EXTRACT(MONTH FROM birthdate) = EXTRACT(MONTH FROM CURRENT_DATE)            AND EXTRACT(DAY FROM birthdate) = EXTRACT(DAY FROM CURRENT_DATE);                 id_    | birthdate  
+-----------+------------
+ 320400000 | 1990-08-04
+ 322900000 | 1987-08-04
+ 335700000 | 1997-08-04
+ 399100000 | 2001-08-04
+ 953600000 | 1991-08-04
+ 217600000 | 2004-08-04
+ 459400000 | 1979-08-04
+ 550200000 | 1987-08-04
+ 237400000 | 1984-08-04
+ 253800000 | 1994-08-04
+ 692500000 | 1984-08-04
+ 750300000 | 2000-08-04
+ 817800000 | 1985-08-04
+ 905600000 | 1998-08-04
+ 987200000 | 1992-08-04
+(15 rows)
+
+Time: 10.376 ms
+postgres=# UPDATE employee_birthdays
+postgres-# SET birthdate = DATE '1800-01-01' + (EXTRACT(YEAR FROM birthdate) % 100) * INTERVAL '1 year'
+postgres-# WHERE EXTRACT(MONTH FROM birthdate) = 2
+postgres-#   AND EXTRACT(DAY FROM birthdate) = 29;
+UPDATE 2
+Time: 14.330 ms
+
+postgres=# CREATE OR REPLACE VIEW employee_times AS
+postgres-# SELECT 
+postgres-#   employee_id,
+postgres-#   timeslot
+postgres-# FROM works
+postgres-# WITH CHECK OPTION;
+CREATE VIEW
+Time: 8.241 ms
+
+postgres=# SELECT *
+postgres-# FROM employee_times
+postgres-# WHERE timeslot < '04:00' OR timeslot > '22:00';
+ employee_id | timeslot 
+-------------+----------
+   600000000 | 03:00:00
+   110000000 | 01:00:00
+   160000000 | 01:00:00
+   ....
+   ....
+   ....
+  999300000 | 01:00:00
+  (2034 rows)
+
+Time: 4.933 ms
+
+postgres=# DELETE FROM employee_times
+postgres-# WHERE timeslot < '04:00' OR timeslot > '22:00'
+postgres-# AND employee_id IN (
+postgres(#   SELECT employee_id
+postgres(#   FROM employees
+postgres(#   WHERE employee_id < 800000000
+postgres(# );
+DELETE 2015
+Time: 16.512 ms
+
